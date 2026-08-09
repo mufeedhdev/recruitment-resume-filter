@@ -1,19 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Registration</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+<link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
 
-    <h1>Student Registration</h1>
+<nav class="navbar">
+  <span class="brand">Student Records</span>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+  </div>
+</nav>
 
-    <form>
-        <input type="text" placeholder="Full Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Register Number">
+<div class="container">
+  <div class="auth-card card">
+    <span class="eyebrow">Step 1 of 3</span>
+    <h2>Create your student profile</h2>
 
-        <button type="submit">Register</button>
+    <form id="registerForm" class="mt-2">
+
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="e.g. Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="regNumber">Register Number</label>
+        <input type="text" id="regNumber" placeholder="e.g. 12345678" maxlength="8" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="12345678@sastra.ac.in" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" required>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" required>
+          <option value="">Select department</option>
+          <option value="BCA">BCA</option>
+          <option value="B.Tech CSE">B.Tech CSE</option>
+          <option value="B.Com">B.Com</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <select id="year" required>
+          <option value="">Select year</option>
+          <option value="1">1st Year</option>
+          <option value="2">2nd Year</option>
+          <option value="3">3rd Year</option>
+          <option value="4">Final Year</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cgpa">CGPA</label>
+        <input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="e.g. 8.2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Create a password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+
+      <div id="formMessage"></div>
+
     </form>
 
+    <p class="mt-1" style="font-size: 0.85rem; color: var(--text-muted);">
+      Already have an account? <a href="login.html">Login here</a>
+    </p>
+
+  </div>
+</div>
+
+<script src="../js/auth.js"></script>
 </body>
 </html>

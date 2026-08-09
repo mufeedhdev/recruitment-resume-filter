@@ -1,0 +1,190 @@
+/* common.css */
+
+/* ---- Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* ---- Tokens ---- */
+:root {
+  --ink: #1B2A45;
+  --ink-light: #2E3F63;
+  --gold: #C89B3C;
+  --gold-light: #E0C077;
+  --paper: #F7F5F0;
+  --white: #FFFFFF;
+  --success: #3F7D58;
+  --error: #B4483A;
+  --text: #22293A;
+  --text-muted: #5B6472;
+  --border: #E1DDD3;
+
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius: 6px;
+  --shadow-sm: 0 1px 3px rgba(27,42,69,0.08);
+  --shadow-md: 0 4px 12px rgba(27,42,69,0.1);
+}
+
+/* ---- Reset ---- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* ---- Eyebrow label (signature element) ---- */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.75rem;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+  background: var(--ink);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.navbar a {
+  color: var(--white);
+  opacity: 0.85;
+  margin-left: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.navbar a:hover { opacity: 1; color: var(--gold-light); }
+
+/* ---- Forms ---- */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200,155,60,0.15);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--ink-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover { border-color: var(--ink); }
+
+/* ---- Messages / Alerts ---- */
+.message {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.message.success { background: rgba(63,125,88,0.1); color: var(--success); }
+.message.error { background: rgba(180,72,58,0.1); color: var(--error); }
+
+/* ---- Utility ---- */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .container { padding: 1.25rem 1rem; }
+  h1 { font-size: 1.6rem; }
+  .navbar { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .navbar a { margin-left: 0; margin-right: 1rem; }
+}
