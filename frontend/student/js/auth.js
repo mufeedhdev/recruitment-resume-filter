@@ -175,3 +175,178 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+// ==================================================
+// LOGIN
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const loginForm = document.getElementById("loginForm");
+
+  if (!loginForm) {
+    return;
+  }
+
+  const loginEmail = document.getElementById("loginEmail");
+  const loginPassword = document.getElementById("loginPassword");
+
+  const loginEmailError = document.getElementById("loginEmailError");
+  const loginPasswordError = document.getElementById("loginPasswordError");
+
+  const loginMessage = document.getElementById("loginMessage");
+
+
+  // ------------------------------------------
+  // Email validation
+  // ------------------------------------------
+
+  loginEmail.addEventListener("input", () => {
+
+    const email = loginEmail.value.trim();
+
+    const emailPattern =
+      /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+    if (email && !emailPattern.test(email)) {
+
+      loginEmailError.textContent =
+        "Enter a valid email such as 123456789@sastra.ac.in.";
+
+      loginEmailError.style.display = "block";
+
+    } else {
+
+      loginEmailError.style.display = "none";
+
+    }
+
+  });
+
+
+  // ------------------------------------------
+  // Password validation
+  // ------------------------------------------
+
+  loginPassword.addEventListener("input", () => {
+
+    const password = loginPassword.value;
+
+
+    if (password && password.length < 6) {
+
+      loginPasswordError.textContent =
+        "Password must be at least 6 characters.";
+
+      loginPasswordError.style.display = "block";
+
+    } else {
+
+      loginPasswordError.style.display = "none";
+
+    }
+
+  });
+
+
+  // ------------------------------------------
+  // Login submit
+  // ------------------------------------------
+
+  loginForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value;
+
+
+    // Check empty fields
+
+    if (!email || !password) {
+
+      showLoginMessage(
+        "Please enter your email and password.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    // Check email
+
+    const emailPattern =
+      /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+    if (!emailPattern.test(email)) {
+
+      showLoginMessage(
+        "Please enter a valid email address.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    // Check password length
+
+    if (password.length < 6) {
+
+      showLoginMessage(
+        "Password must be at least 6 characters.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    // ------------------------------------------
+    // Temporary login
+    // Backend authentication will be added later
+    // ------------------------------------------
+
+    console.log("Login attempted:", {
+      email: email,
+      password: password
+    });
+
+
+    showLoginMessage(
+      "Login successful! Redirecting...",
+      "success"
+    );
+
+
+    setTimeout(() => {
+
+      window.location.href = "dashboard.html";
+
+    }, 1500);
+
+  });
+
+
+  // ------------------------------------------
+  // Login message function
+  // ------------------------------------------
+
+  function showLoginMessage(text, type) {
+
+    if (loginMessage) {
+
+      loginMessage.textContent = text;
+
+      loginMessage.className =
+        "message " + type;
+
+    }
+
+  }
+
+});

@@ -1,0 +1,75 @@
+/* =========================================
+   AUTHENTICATION PAGES
+   Login + Register
+   ========================================= */
+
+
+/* ---- Authentication Card ---- */
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  margin: 2rem auto;
+}
+
+
+/* ---- Authentication Heading ---- */
+
+.auth-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+
+/* ---- Form ---- */
+
+.auth-card form {
+  width: 100%;
+}
+
+
+/* ---- Form Inputs ---- */
+
+.auth-card input,
+.auth-card select {
+  box-sizing: border-box;
+}
+
+
+/* ---- Validation Error Text ---- */
+
+.auth-card small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+
+/* ---- Authentication Button ---- */
+
+.auth-card .btn {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+
+/* ---- Login/Register Links ---- */
+
+.auth-card a {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.auth-card a:hover {
+  color: var(--gold);
+}
+
+
+/* ---- Mobile ---- */
+
+@media (max-width: 600px) {
+  .auth-card {
+    margin: 1rem auto;
+    padding: 1.25rem;
+  }
+}
