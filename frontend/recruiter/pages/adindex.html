@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Portal — Student Records</title>
+  <meta charset="UTF-8">
 
-<link rel="stylesheet" href="shared/css/common.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Login — Student Records</title>
+
+  <!-- Common CSS Reference -->
+  <link rel="stylesheet" href="../../shared/css/common.css">
+
 </head>
 
+
 <body>
+
+
+<!-- Navigation Bar -->
 
 <nav class="navbar">
 
   <span class="brand">Student Records</span>
 
   <div>
+
+    <!-- Index Page Reference -->
     <a href="../index.html">Home</a>
+
+    <a href="login.html">Admin Login</a>
 
   </div>
 
 </nav>
 
 
+
+<!-- Main Container -->
+
 <div class="container">
 
-  <!-- Admin Login Section -->
+
+  <!-- Admin Login Card -->
 
   <div class="card">
 
@@ -33,52 +50,74 @@
 
     <h2>Admin Login</h2>
 
-    <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-      Login to manage student records, recruitment, events, and profiles.
+    <p class="mt-1" style="color: var(--text-muted);">
+      Login to manage student records and recruitment activities.
     </p>
 
 
-    <form action="#" method="post" style="margin-top: 1.5rem;">
+    <!-- Admin Login Form -->
 
-      <div>
-        <label for="email">Admin Email</label>
+    <form id="adminLoginForm" class="mt-2">
+
+
+      <!-- Admin Email -->
+
+      <div class="form-group">
+
+        <label for="adminEmail">Admin Email</label>
 
         <input
           type="email"
-          id="email"
-          name="email"
+          id="adminEmail"
           placeholder="Enter admin email"
           required
         >
+
+        <small
+          id="adminEmailError"
+          style="color: var(--error); display: none;">
+        </small>
+
       </div>
 
 
-      <div style="margin-top: 1rem;">
+      <!-- Password -->
 
-        <label for="password">Password</label>
+      <div class="form-group">
+
+        <label for="adminPassword">Password</label>
 
         <input
           type="password"
-          id="password"
-          name="password"
-          placeholder="Enter admin password"
+          id="adminPassword"
+          placeholder="Enter your password"
           required
         >
 
-      </div>
-
-
-      <div class="mt-2" style="margin-top: 1.5rem;">
-
-        <button type="submit" class="btn btn-primary">
-          Admin Login
-        </button>
+        <small
+          id="adminPasswordError"
+          style="color: var(--error); display: none;">
+        </small>
 
       </div>
+
+
+      <!-- Login Button -->
+
+      <button type="submit" class="btn btn-primary">
+        Admin Login
+      </button>
+
+
+      <!-- Login Message -->
+
+      <div id="adminLoginMessage"></div>
+
 
     </form>
 
   </div>
+
 
 
   <!-- Admin Features -->
@@ -92,7 +131,8 @@
     "
   >
 
-    <!-- Step 1 -->
+
+    <!-- Feature 1 -->
 
     <div class="card">
 
@@ -107,7 +147,7 @@
     </div>
 
 
-    <!-- Step 2 -->
+    <!-- Feature 2 -->
 
     <div class="card">
 
@@ -123,25 +163,27 @@
     </div>
 
 
-    <!-- Step 3 -->
+    <!-- Feature 3 -->
 
     <div class="card">
 
       <span class="eyebrow">Step 3</span>
 
-      <h3>Manage Recruitment</h3>
+      <h3>Recruitment</h3>
 
       <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Search students, manage recruitment activities,
-        and update selection details.
+        Search students and manage recruitment and selection details.
       </p>
 
     </div>
 
+
   </div>
+
 
 </div>
 
 
 </body>
+
 </html>
