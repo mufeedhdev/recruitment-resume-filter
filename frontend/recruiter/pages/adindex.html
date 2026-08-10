@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Portal — Student Records</title>
+
+<link rel="stylesheet" href="../../shared/css/common.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <span class="brand">Student Records</span>
+
+  <div>
+    <a href="login.html">Admin Login</a>
+  </div>
+</nav>
+
+
+<div class="container">
+
+  <div class="card">
+
+    <span class="eyebrow">Admin Portal</span>
+
+    <h2>Admin Login</h2>
+
+    <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
+      Login to manage student records, recruitment, events, and profiles.
+    </p>
+
+
+    <form action="#" method="post" style="margin-top: 1.5rem;">
+
+      <div>
+        <label for="email">Admin Email</label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter admin email"
+          required
+        >
+      </div>
+
+
+      <div style="margin-top: 1rem;">
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter admin password"
+          required
+        >
+      </div>
+
+
+      <div class="mt-2">
+
+        <button type="submit" class="btn btn-primary">
+          Admin Login
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <div
+    class="mt-2"
+    style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    "
+  >
+
+
+    <div class="card">
+
+      <span class="eyebrow">Step 1</span>
+
+      <h3>Admin Login</h3>
+
+      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
+        Login securely using your admin email and password.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <span class="eyebrow">Step 2</span>
+
+      <h3>Manage Students</h3>
+
+      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
+        View and manage student profiles, skills, CGPA, resumes,
+        events, and certifications.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <span class="eyebrow">Step 3</span>
+
+      <h3>Manage Recruitment</h3>
+
+      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
+        Search students, manage recruitment activities,
+        and update selection details.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+</body>
+</html>
