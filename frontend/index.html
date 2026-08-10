@@ -3,17 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Recruitment Resume Filter</title>
 
+    <!-- Shared CSS -->
     <link rel="stylesheet" href="shared/css/common.css">
+
+    <style>
+        .role-selection {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .role-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .role-card h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .role-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .role-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .role-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <span class="brand">Recruitment Resume Filter</span>
+
+        <div>
+            <a href="index.html">Home</a>
+        </div>
     </nav>
 
+
+    <!-- Main Content -->
     <main class="container">
 
         <div class="card text-center">
@@ -26,42 +73,49 @@
                 Select how you want to use the recruitment platform.
             </p>
 
-            <div class="role-options">
 
+            <!-- Student / Recruiter Options -->
+            <div class="role-selection">
+
+                <!-- Student -->
                 <div class="role-card">
+
+                    <span class="eyebrow">Student Portal</span>
+
                     <h2>Student</h2>
+
                     <p>
-                        Create your profile, add your skills,
-                        education, resume and achievements.
+                        Create your profile, add your education,
+                        skills, resume, achievements and other details.
                     </p>
 
-<<<<<<< HEAD
-        <a href="recruiter/pages/login.html"
-           class="btn btn-secondary"
-           style="margin-left: 0.5rem;">
-          Recruiter Login
-        </a>
-      </div>
-    </div>
-=======
-                    <a href="student/pages/register.html"
-                       class="btn btn-primary">
+                    <a
+                        href="student/pages/register.html"
+                        class="btn btn-primary">
                         Continue as Student
                     </a>
-                </div>
->>>>>>> ebee156d3015c48d43e53324ec78db49727bca6e
 
+                </div>
+
+
+                <!-- Recruiter -->
                 <div class="role-card">
+
+                    <span class="eyebrow">Recruiter Portal</span>
+
                     <h2>Recruiter</h2>
+
                     <p>
                         Find suitable student candidates
                         and manage recruitment activities.
                     </p>
 
-                    <a href="recruiter/pages/register.html"
-                       class="btn btn-primary">
+                    <a
+                        href="recruiter/pages/register.html"
+                        class="btn btn-primary">
                         Continue as Recruiter
                     </a>
+
                 </div>
 
             </div>
