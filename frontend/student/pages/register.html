@@ -26,22 +26,25 @@
 
       <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" placeholder="e.g. Your Name" required>
+        <input type="text" id="fullName" placeholder="e.g. XXXXXXX X" required>
       </div>
 
       <div class="form-group">
         <label for="regNumber">Register Number</label>
-        <input type="text" id="regNumber" placeholder="e.g. 12345678" maxlength="8" required>
+        <input type="text" id="regNumber" placeholder="e.g. 123456789" maxlength="9" required>
+        <small id="regNumberError" style="color: var(--error); display: none;"></small>
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="12345678@sastra.ac.in" required>
+        <input type="email" id="email" placeholder="123456789@sastra.ac.in" required>
+        <small id="emailError" style="color: var(--error); display: none;"></small>
       </div>
 
       <div class="form-group">
         <label for="phone">Phone</label>
         <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" required>
+        <small id="phoneError" style="color: var(--error); display: none;"></small>
       </div>
 
       <div class="form-group">
@@ -74,11 +77,13 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Create a password" required>
+        <small id="passwordError" style="color: var(--error); display: none;"></small>
       </div>
 
       <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+        <small id="confirmPasswordError" style="color: var(--error); display: none;"></small>
       </div>
 
       <button type="submit" class="btn btn-primary">Register</button>
