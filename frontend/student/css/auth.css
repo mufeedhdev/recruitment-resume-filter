@@ -73,3 +73,30 @@
     padding: 1.25rem;
   }
 }
+/* ---- Login Page ---- */
+
+.login-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.otp-resend {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.resend-btn:hover {
+    color: var(--gold);
+}

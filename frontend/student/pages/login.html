@@ -1,99 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Login</title>
 
-<link rel="stylesheet" href="../../shared/css/common.css">
-<link rel="stylesheet" href="../css/auth.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 
 <body>
 
-<nav class="navbar">
-  <span class="brand">Student Records</span>
+    <!-- Navigation -->
+    <nav class="navbar">
 
-  <div>
-    <a href="../../index.html">Home</a>
-    <a href="register.html">Register</a>
-  </div>
-</nav>
+        <span class="brand">Recruitment Resume Filter</span>
 
-<div class="container">
+        <div>
+            <a href="../../index.html">Home</a>
+            <a href="register.html">Register</a>
+        </div>
 
-  <div class="auth-card card">
-
-    <span class="eyebrow">Student Portal</span>
-
-    <h2>Welcome Back</h2>
-
-    <p class="mt-1" style="color: var(--text-muted);">
-      Login to access your student profile.
-    </p>
-
-    <form id="loginForm" class="mt-2">
-
-      <div class="form-group">
-        <label for="loginEmail">Email</label>
-
-        <input
-          type="email"
-          id="loginEmail"
-          placeholder="123456789@sastra.ac.in"
-          required
-        >
-
-        <small
-          id="loginEmailError"
-          style="color: var(--error); display: none;">
-        </small>
-      </div>
+    </nav>
 
 
-      <div class="form-group">
+    <!-- Login -->
+    <div class="container">
 
-        <label for="loginPassword">Password</label>
+        <div class="auth-card card">
 
-        <input
-          type="password"
-          id="loginPassword"
-          placeholder="Enter your password"
-          required
-        >
+            <span class="eyebrow">Student Portal</span>
 
-        <small
-          id="loginPasswordError"
-          style="color: var(--error); display: none;">
-        </small>
+            <h2>Student Login</h2>
 
-      </div>
+            <p class="login-description">
+                Login using your registered college email.
+            </p>
 
 
-      <button type="submit" class="btn btn-primary">
-        Login
-      </button>
+            <form id="loginForm">
 
-      <div id="loginMessage"></div>
+                <!-- College Email -->
 
-    </form>
+                <div class="form-group">
+
+                    <label for="email">
+                        College Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="XXXXXXXXX@sastra.ac.in"
+                        required
+                    >
+
+                    <small
+                        id="emailError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
 
 
-    <p class="mt-1" style="font-size: 0.85rem; color: var(--text-muted);">
+                <!-- Send OTP -->
 
-      Don't have an account?
+                <button
+                    type="button"
+                    id="sendOtpBtn"
+                    class="btn btn-primary">
+                    Send OTP
+                </button>
 
-      <a href="register.html">
-        Register here
-      </a>
 
-    </p>
+                <!-- OTP Section -->
 
-  </div>
+                <div
+                    id="otpSection"
+                    style="display: none;">
 
-</div>
+                    <div class="form-group mt-2">
 
-<script src="../js/auth.js"></script>
+                        <label for="otp">
+                            Enter OTP
+                        </label>
+
+                        <input
+                            type="text"
+                            id="otp"
+                            placeholder="Enter 6-digit OTP"
+                            maxlength="6"
+                            inputmode="numeric"
+                        >
+
+                        <small
+                            id="otpError"
+                            style="color: var(--error); display: none;">
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        Verify OTP
+                    </button>
+
+
+                    <p class="mt-1 otp-resend">
+
+                        Didn't receive the OTP?
+
+                        <button
+                            type="button"
+                            id="resendOtpBtn"
+                            class="resend-btn">
+                            Resend OTP
+                        </button>
+
+                    </p>
+
+                </div>
+
+
+                <!-- Message -->
+
+                <div id="formMessage"></div>
+
+            </form>
+
+
+            <p
+                class="mt-1"
+                style="font-size: 0.85rem; color: var(--text-muted);">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Register here
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/auth.js"></script>
 
 </body>
+
 </html>
