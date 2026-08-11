@@ -3,14 +3,13 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruiter Login</title>
 
-  <title>Admin Dashboard — Student Records</title>
-
-  <!-- Common CSS Reference -->
-  <link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../css/auth.css">
 
 </head>
 
@@ -18,22 +17,15 @@
 <body>
 
 
-<!-- Navigation Bar -->
-
 <nav class="navbar">
 
   <span class="brand">Student Records</span>
 
   <div>
 
-    <!-- Index Page -->
     <a href="../../index.html">Home</a>
 
-    <!-- Dashboard -->
-    <a href="dashboard.html">Dashboard</a>
-
-    <!-- Logout -->
-    <a href="login.html">Logout</a>
+    <a href="register.html">Register</a>
 
   </div>
 
@@ -41,227 +33,191 @@
 
 
 
-<!-- Main Container -->
-
 <div class="container">
 
+  <div class="auth-card card">
 
-  <!-- Dashboard Header -->
+    <span class="eyebrow">Recruiter Portal</span>
 
-  <div class="card">
+    <h2>Recruiter Login</h2>
 
-    <span class="eyebrow">Admin Portal</span>
-
-    <h2>Admin Dashboard</h2>
-
-    <p class="mt-1" style="color: var(--text-muted);">
-      Manage student records, recruitment activities, and profiles.
+    <p
+      class="mt-1"
+      style="color: var(--text-muted);"
+    >
+      Login using your recruiter account.
     </p>
 
-  </div>
 
 
-
-  <!-- Dashboard Statistics -->
-
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-    "
-  >
+    <form id="loginForm" class="mt-2">
 
 
-    <!-- Total Students -->
+      <!-- Email -->
 
-    <div class="card">
+      <div class="form-group">
 
-      <span class="eyebrow">Students</span>
+        <label for="email">
+          Email ID
+        </label>
 
-      <h2>250</h2>
+        <input
+          type="email"
+          id="email"
+          placeholder="123456789@sastra.ac.in"
+          required
+        >
 
-      <p style="color: var(--text-muted);">
-        Total Registered Students
-      </p>
-
-    </div>
-
-
-    <!-- Active Profiles -->
-
-    <div class="card">
-
-      <span class="eyebrow">Profiles</span>
-
-      <h2>210</h2>
-
-      <p style="color: var(--text-muted);">
-        Active Student Profiles
-      </p>
-
-    </div>
-
-
-    <!-- Recruitments -->
-
-    <div class="card">
-
-      <span class="eyebrow">Recruitment</span>
-
-      <h2>25</h2>
-
-      <p style="color: var(--text-muted);">
-        Active Recruitment Drives
-      </p>
-
-    </div>
-
-
-    <!-- Selected Students -->
-
-    <div class="card">
-
-      <span class="eyebrow">Selected</span>
-
-      <h2>45</h2>
-
-      <p style="color: var(--text-muted);">
-        Students Selected
-      </p>
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- Admin Management -->
-
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-    "
-  >
-
-
-    <!-- Student Management -->
-
-    <div class="card">
-
-      <span class="eyebrow">Management</span>
-
-      <h3>Student Records</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        View, search, and manage student profiles,
-        skills, CGPA, resumes, and achievements.
-      </p>
-
-      <div class="mt-2">
-
-        <a href="#" class="btn btn-primary">
-          View Students
-        </a>
+        <small
+          id="emailError"
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
 
-    </div>
 
 
-    <!-- Recruitment Management -->
+      <!-- Password -->
 
-    <div class="card">
+      <div class="form-group">
 
-      <span class="eyebrow">Management</span>
+        <label for="password">
+          Password
+        </label>
 
-      <h3>Recruitment</h3>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        >
 
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        Manage recruitment drives, company requirements,
-        student selection, and placement details.
-      </p>
-
-      <div class="mt-2">
-
-        <a href="#" class="btn btn-primary">
-          Manage Recruitment
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- Events Management -->
-
-    <div class="card">
-
-      <span class="eyebrow">Management</span>
-
-      <h3>Events & Activities</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        Manage workshops, seminars, events,
-        certifications, and student participation.
-      </p>
-
-      <div class="mt-2">
-
-        <a href="#" class="btn btn-primary">
-          Manage Events
-        </a>
+        <small
+          id="passwordError"
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
 
-    </div>
+
+
+      <!-- Login Button -->
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >
+        Login
+      </button>
+
+
+      <div id="formMessage"></div>
+
+
+    </form>
+
+
+
+    <p
+      class="mt-1"
+      style="font-size: 0.85rem; color: var(--text-muted);"
+    >
+
+      Don't have an account?
+
+      <a href="register.html">
+        Register here
+      </a>
+
+    </p>
 
 
   </div>
-
-
-
-  <!-- Recent Activities -->
-
-  <div class="card mt-2">
-
-    <span class="eyebrow">Recent Activity</span>
-
-    <h3>Latest Updates</h3>
-
-    <div style="margin-top: 1rem;">
-
-      <p style="color: var(--text-muted);">
-        • New student profile registered
-      </p>
-
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • Recruitment drive updated
-      </p>
-
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • Student certification added
-      </p>
-
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • New student selected for recruitment
-      </p>
-
-    </div>
-
-  </div>
-
-
 
 </div>
+
+
+
+<script>
+
+
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const password =
+      document.getElementById("password").value;
+
+
+    const emailError =
+      document.getElementById("emailError");
+
+    const passwordError =
+      document.getElementById("passwordError");
+
+
+    // Clear old errors
+
+    emailError.textContent = "";
+    emailError.style.display = "none";
+
+    passwordError.textContent = "";
+    passwordError.style.display = "none";
+
+
+    // Email validation
+
+    const emailPattern =
+      /^[0-9]+@sastra\.ac\.in$/;
+
+
+    if (!emailPattern.test(email)) {
+
+      emailError.textContent =
+        "Enter a valid SASTRA email like 123456789@sastra.ac.in";
+
+      emailError.style.display = "block";
+
+      return;
+
+    }
+
+
+    // Password validation
+
+    if (password.length < 6) {
+
+      passwordError.textContent =
+        "Password must contain at least 6 characters.";
+
+      passwordError.style.display = "block";
+
+      return;
+
+    }
+
+
+    /*
+      Login successful
+
+      Go to Recruiter Dashboard
+    */
+
+    window.location.href = "dashboard.html";
+
+
+  });
+
+
+</script>
 
 
 </body>
 
 </html>
-

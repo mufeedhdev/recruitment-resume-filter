@@ -3,14 +3,13 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruiter Registration</title>
 
-  <title>Admin Register — Student Records</title>
-
-  <!-- Common CSS Reference -->
-  <link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../css/auth.css">
 
 </head>
 
@@ -18,20 +17,15 @@
 <body>
 
 
-<!-- Navigation Bar -->
-
 <nav class="navbar">
 
   <span class="brand">Student Records</span>
 
   <div>
 
-    <!-- Index Page Reference -->
-    <a href="../index.html">Home</a>
+    <a href="../../index.html">Home</a>
 
-    <a href="login.html">Admin Login</a>
-
-    <a href="register.html">Admin Register</a>
+    <a href="login.html">Login</a>
 
   </div>
 
@@ -39,217 +33,479 @@
 
 
 
-<!-- Main Container -->
-
 <div class="container">
 
+  <div class="auth-card card">
 
-  <!-- Admin Registration Card -->
+    <span class="eyebrow">Recruiter Registration</span>
 
-  <div class="card">
-
-    <span class="eyebrow">Admin Portal</span>
-
-    <h2>Admin Registration</h2>
-
-    <p class="mt-1" style="color: var(--text-muted);">
-      Create an admin account to manage student records and recruitment activities.
-    </p>
+    <h2>Create your recruiter profile</h2>
 
 
-    <!-- Admin Registration Form -->
-
-    <form id="adminRegisterForm" class="mt-2">
+    <form id="registerForm" class="mt-2">
 
 
-      <!-- Admin Name -->
+      <!-- Recruiter Name -->
 
       <div class="form-group">
 
-        <label for="adminName">Admin Name</label>
+        <label for="fullName">
+          Recruiter Name
+        </label>
 
         <input
           type="text"
-          id="adminName"
-          placeholder="Enter admin name"
+          id="fullName"
+          placeholder="e.g. Dr. Arun Kumar"
           required
         >
 
         <small
-          id="adminNameError"
-          style="color: var(--error); display: none;">
-        </small>
+          id="nameError"
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
 
 
-      <!-- Admin Email -->
+
+      <!-- Department -->
 
       <div class="form-group">
 
-        <label for="adminEmail">Admin Email</label>
+        <label for="department">
+          Department
+        </label>
+
+        <select id="department" required>
+
+          <option value="">
+            Select department
+          </option>
+
+          <option value="CSE">
+            CSE
+          </option>
+
+          <option value="ECE">
+            ECE
+          </option>
+
+          <option value="Training & Placement">
+            Training & Placement
+          </option>
+
+          <option value="Others">
+            Others
+          </option>
+
+        </select>
+
+        <small
+          id="departmentError"
+          style="color: var(--error); display: none;"
+        ></small>
+
+      </div>
+
+
+
+      <!-- Staff ID -->
+
+      <div class="form-group">
+
+        <label for="staffId">
+          Staff ID
+        </label>
+
+        <input
+          type="text"
+          id="staffId"
+          placeholder="e.g. SCT12345"
+          required
+        >
+
+        <small
+          id="staffIdError"
+          style="color: var(--error); display: none;"
+        ></small>
+
+      </div>
+
+
+
+      <!-- Phone -->
+
+      <div class="form-group">
+
+        <label for="phone">
+          Phone
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+          inputmode="numeric"
+          required
+        >
+
+        <small
+          id="phoneError"
+          style="color: var(--error); display: none;"
+        ></small>
+
+      </div>
+
+
+
+      <!-- Email -->
+
+      <div class="form-group">
+
+        <label for="email">
+          Email ID
+        </label>
 
         <input
           type="email"
-          id="adminEmail"
-          placeholder="Enter admin email"
+          id="email"
+          placeholder="123456789@sastra.ac.in"
           required
         >
 
         <small
-          id="adminEmailError"
-          style="color: var(--error); display: none;">
-        </small>
+          id="emailError"
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
 
-
-      <!-- Admin ID -->
-
-      <div class="form-group">
-
-        <label for="adminId">Admin ID</label>
-
-        <input
-          type="text"
-          id="adminId"
-          placeholder="Enter admin ID"
-          required
-        >
-
-        <small
-          id="adminIdError"
-          style="color: var(--error); display: none;">
-        </small>
-
-      </div>
 
 
       <!-- Password -->
 
       <div class="form-group">
 
-        <label for="adminPassword">Password</label>
+        <label for="password">
+          Password
+        </label>
 
         <input
           type="password"
-          id="adminPassword"
-          placeholder="Enter password"
+          id="password"
+          placeholder="Minimum 6 characters"
+          minlength="6"
           required
         >
 
         <small
-          id="adminPasswordError"
-          style="color: var(--error); display: none;">
-        </small>
+          id="passwordError"
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
+
 
 
       <!-- Confirm Password -->
 
       <div class="form-group">
 
-        <label for="confirmPassword">Confirm Password</label>
+        <label for="confirmPassword">
+          Confirm Password
+        </label>
 
         <input
           type="password"
           id="confirmPassword"
-          placeholder="Re-enter password"
+          placeholder="Re-enter your password"
           required
         >
 
         <small
           id="confirmPasswordError"
-          style="color: var(--error); display: none;">
-        </small>
+          style="color: var(--error); display: none;"
+        ></small>
 
       </div>
 
 
+
       <!-- Register Button -->
 
-      <button type="submit" class="btn btn-primary">
-        Create Admin Account
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >
+        Register
       </button>
 
 
-      <!-- Registration Message -->
-
-      <div id="adminRegisterMessage"></div>
+      <div id="formMessage"></div>
 
 
     </form>
 
-  </div>
 
 
+    <p
+      class="mt-1"
+      style="font-size: 0.85rem; color: var(--text-muted);"
+    >
 
-  <!-- Admin Features -->
+      Already have an account?
 
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-    "
-  >
+      <a href="login.html">
+        Login here
+      </a>
 
-
-    <!-- Feature 1 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 1</span>
-
-      <h3>Create Account</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Enter the admin name, email, ID, and password to create an account.
-      </p>
-
-    </div>
-
-
-    <!-- Feature 2 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 2</span>
-
-      <h3>Manage Students</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Manage student profiles, skills, CGPA, resumes,
-        events, and certifications.
-      </p>
-
-    </div>
-
-
-    <!-- Feature 3 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 3</span>
-
-      <h3>Manage Recruitment</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Search students and manage recruitment and selection details.
-      </p>
-
-    </div>
+    </p>
 
 
   </div>
-
 
 </div>
+
+
+
+<script>
+
+const form =
+  document.getElementById("registerForm");
+
+
+form.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+
+  // Get values
+
+  const name =
+    document.getElementById("fullName").value.trim();
+
+  const department =
+    document.getElementById("department").value;
+
+  const staffId =
+    document.getElementById("staffId").value.trim();
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const confirmPassword =
+    document.getElementById("confirmPassword").value;
+
+
+  // Error elements
+
+  const nameError =
+    document.getElementById("nameError");
+
+  const departmentError =
+    document.getElementById("departmentError");
+
+  const staffIdError =
+    document.getElementById("staffIdError");
+
+  const phoneError =
+    document.getElementById("phoneError");
+
+  const emailError =
+    document.getElementById("emailError");
+
+  const passwordError =
+    document.getElementById("passwordError");
+
+  const confirmPasswordError =
+    document.getElementById("confirmPasswordError");
+
+
+  // Clear old errors
+
+  const errors = [
+    nameError,
+    departmentError,
+    staffIdError,
+    phoneError,
+    emailError,
+    passwordError,
+    confirmPasswordError
+  ];
+
+  errors.forEach(function(error) {
+
+    error.textContent = "";
+    error.style.display = "none";
+
+  });
+
+
+  let valid = true;
+
+
+  // Name validation
+
+  if (name === "") {
+
+    nameError.textContent =
+      "Please enter recruiter name.";
+
+    nameError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Department validation
+
+  if (department === "") {
+
+    departmentError.textContent =
+      "Please select a department.";
+
+    departmentError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Staff ID validation
+
+  if (staffId === "") {
+
+    staffIdError.textContent =
+      "Please enter Staff ID.";
+
+    staffIdError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Phone validation
+
+  const phonePattern =
+    /^[0-9]{10}$/;
+
+
+  if (!phonePattern.test(phone)) {
+
+    phoneError.textContent =
+      "Phone number must contain exactly 10 digits.";
+
+    phoneError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Email validation
+
+  const emailPattern =
+    /^[0-9]+@sastra\.ac\.in$/;
+
+
+  if (!emailPattern.test(email)) {
+
+    emailError.textContent =
+      "Email must be like 123456789@sastra.ac.in";
+
+    emailError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Password validation
+
+  if (password.length < 6) {
+
+    passwordError.textContent =
+      "Password must contain at least 6 characters.";
+
+    passwordError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // Confirm password validation
+
+  if (confirmPassword === "") {
+
+    confirmPasswordError.textContent =
+      "Please re-enter your password.";
+
+    confirmPasswordError.style.display = "block";
+
+    valid = false;
+
+  }
+
+  else if (password !== confirmPassword) {
+
+    confirmPasswordError.textContent =
+      "Passwords do not match.";
+
+    confirmPasswordError.style.display = "block";
+
+    valid = false;
+
+  }
+
+
+  // If any error exists, stop registration
+
+  if (!valid) {
+
+    return;
+
+  }
+
+
+  // Registration successful
+
+  alert("Registration successful! Please login.");
+
+
+  // Go to Login page
+
+  window.location.href = "login.html";
+
+
+});
+
+
+
+/* Phone - allow numbers only */
+
+document
+  .getElementById("phone")
+  .addEventListener("input", function() {
+
+    this.value =
+      this.value.replace(/[^0-9]/g, "");
+
+  });
+
+</script>
 
 
 </body>
 
 </html>
-
