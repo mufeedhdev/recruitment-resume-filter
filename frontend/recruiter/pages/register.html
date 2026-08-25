@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,209 +8,123 @@
 
 <link rel="stylesheet" href="../../shared/css/common.css">
 <link rel="stylesheet" href="../css/auth.css">
-
 </head>
-
 
 <body>
 
-
 <nav class="navbar">
-
   <span class="brand">Student Records</span>
 
   <div>
-
     <a href="../../index.html">Home</a>
-
     <a href="login.html">Login</a>
-
   </div>
-
 </nav>
-
 
 
 <div class="container">
 
   <div class="auth-card card">
 
-    <span class="eyebrow">Recruiter Registration</span>
+    <span class="eyebrow">Recruiter Portal</span>
 
-    <h2>Create your recruiter profile</h2>
+    <h2>Create Recruiter Account</h2>
 
-
-    <form id="registerForm" class="mt-2">
-
-
-      <!-- Recruiter Name -->
+    <form id="recruiterRegisterForm" class="mt-2">
 
       <div class="form-group">
-
-        <label for="fullName">
-          Recruiter Name
-        </label>
-
+        <label for="name">Full Name</label>
         <input
           type="text"
-          id="fullName"
-          placeholder="e.g. Dr. Arun Kumar"
+          id="name"
+          placeholder="Enter your name"
           required
         >
-
-        <small
-          id="nameError"
-          style="color: var(--error); display: none;"
-        ></small>
-
       </div>
 
 
-
-      <!-- Department -->
-
       <div class="form-group">
-
-        <label for="department">
-          Department
-        </label>
+        <label for="department">Department</label>
 
         <select id="department" required>
-
-          <option value="">
-            Select department
-          </option>
-
-          <option value="CSE">
-            CSE
-          </option>
-
-          <option value="ECE">
-            ECE
-          </option>
-
+          <option value="">Select Department</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="BCA">BCA</option>
+          <option value="B.Com">B.Com</option>
+          <option value="Mathematics">Mathematics</option>
           <option value="Training & Placement">
             Training & Placement
           </option>
-
-          <option value="Others">
-            Others
-          </option>
-
         </select>
-
-        <small
-          id="departmentError"
-          style="color: var(--error); display: none;"
-        ></small>
-
       </div>
 
 
-
-      <!-- Staff ID -->
-
       <div class="form-group">
-
-        <label for="staffId">
-          Staff ID
-        </label>
+        <label for="staffId">Staff ID</label>
 
         <input
           type="text"
           id="staffId"
-          placeholder="e.g. SCT12345"
+          placeholder="Enter Staff ID"
           required
         >
-
-        <small
-          id="staffIdError"
-          style="color: var(--error); display: none;"
-        ></small>
-
       </div>
 
 
-
-      <!-- Phone -->
-
       <div class="form-group">
-
-        <label for="phone">
-          Phone
-        </label>
+        <label for="phone">Phone Number</label>
 
         <input
           type="tel"
           id="phone"
           placeholder="10-digit mobile number"
           maxlength="10"
-          inputmode="numeric"
           required
         >
 
         <small
           id="phoneError"
-          style="color: var(--error); display: none;"
-        ></small>
-
+          style="color: var(--error); display:none;">
+        </small>
       </div>
 
 
-
-      <!-- Email -->
-
       <div class="form-group">
-
-        <label for="email">
-          Email ID
-        </label>
+        <label for="email">Email</label>
 
         <input
           type="email"
           id="email"
-          placeholder="123456789@sastra.ac.in"
+          placeholder="staff@sastra.ac.in"
           required
         >
 
         <small
           id="emailError"
-          style="color: var(--error); display: none;"
-        ></small>
-
+          style="color: var(--error); display:none;">
+        </small>
       </div>
 
 
-
-      <!-- Password -->
-
       <div class="form-group">
-
-        <label for="password">
-          Password
-        </label>
+        <label for="password">Password</label>
 
         <input
           type="password"
           id="password"
-          placeholder="Minimum 6 characters"
-          minlength="6"
+          placeholder="Create a password"
           required
         >
 
         <small
           id="passwordError"
-          style="color: var(--error); display: none;"
-        ></small>
-
+          style="color: var(--error); display:none;">
+        </small>
       </div>
 
 
-
-      <!-- Confirm Password -->
-
       <div class="form-group">
-
         <label for="confirmPassword">
           Confirm Password
         </label>
@@ -220,40 +132,32 @@
         <input
           type="password"
           id="confirmPassword"
-          placeholder="Re-enter your password"
+          placeholder="Re-enter password"
           required
         >
 
         <small
           id="confirmPasswordError"
-          style="color: var(--error); display: none;"
-        ></small>
-
+          style="color: var(--error); display:none;">
+        </small>
       </div>
 
 
-
-      <!-- Register Button -->
-
       <button
         type="submit"
-        class="btn btn-primary"
-      >
+        class="btn btn-primary">
         Register
       </button>
 
 
       <div id="formMessage"></div>
 
-
     </form>
-
 
 
     <p
       class="mt-1"
-      style="font-size: 0.85rem; color: var(--text-muted);"
-    >
+      style="font-size:0.85rem; color:var(--text-muted);">
 
       Already have an account?
 
@@ -263,249 +167,12 @@
 
     </p>
 
-
   </div>
 
 </div>
 
 
-
-<script>
-
-const form =
-  document.getElementById("registerForm");
-
-
-form.addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-
-  // Get values
-
-  const name =
-    document.getElementById("fullName").value.trim();
-
-  const department =
-    document.getElementById("department").value;
-
-  const staffId =
-    document.getElementById("staffId").value.trim();
-
-  const phone =
-    document.getElementById("phone").value.trim();
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  const confirmPassword =
-    document.getElementById("confirmPassword").value;
-
-
-  // Error elements
-
-  const nameError =
-    document.getElementById("nameError");
-
-  const departmentError =
-    document.getElementById("departmentError");
-
-  const staffIdError =
-    document.getElementById("staffIdError");
-
-  const phoneError =
-    document.getElementById("phoneError");
-
-  const emailError =
-    document.getElementById("emailError");
-
-  const passwordError =
-    document.getElementById("passwordError");
-
-  const confirmPasswordError =
-    document.getElementById("confirmPasswordError");
-
-
-  // Clear old errors
-
-  const errors = [
-    nameError,
-    departmentError,
-    staffIdError,
-    phoneError,
-    emailError,
-    passwordError,
-    confirmPasswordError
-  ];
-
-  errors.forEach(function(error) {
-
-    error.textContent = "";
-    error.style.display = "none";
-
-  });
-
-
-  let valid = true;
-
-
-  // Name validation
-
-  if (name === "") {
-
-    nameError.textContent =
-      "Please enter recruiter name.";
-
-    nameError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Department validation
-
-  if (department === "") {
-
-    departmentError.textContent =
-      "Please select a department.";
-
-    departmentError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Staff ID validation
-
-  if (staffId === "") {
-
-    staffIdError.textContent =
-      "Please enter Staff ID.";
-
-    staffIdError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Phone validation
-
-  const phonePattern =
-    /^[0-9]{10}$/;
-
-
-  if (!phonePattern.test(phone)) {
-
-    phoneError.textContent =
-      "Phone number must contain exactly 10 digits.";
-
-    phoneError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Email validation
-
-  const emailPattern =
-    /^[0-9]+@sastra\.ac\.in$/;
-
-
-  if (!emailPattern.test(email)) {
-
-    emailError.textContent =
-      "Email must be like 123456789@sastra.ac.in";
-
-    emailError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Password validation
-
-  if (password.length < 6) {
-
-    passwordError.textContent =
-      "Password must contain at least 6 characters.";
-
-    passwordError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // Confirm password validation
-
-  if (confirmPassword === "") {
-
-    confirmPasswordError.textContent =
-      "Please re-enter your password.";
-
-    confirmPasswordError.style.display = "block";
-
-    valid = false;
-
-  }
-
-  else if (password !== confirmPassword) {
-
-    confirmPasswordError.textContent =
-      "Passwords do not match.";
-
-    confirmPasswordError.style.display = "block";
-
-    valid = false;
-
-  }
-
-
-  // If any error exists, stop registration
-
-  if (!valid) {
-
-    return;
-
-  }
-
-
-  // Registration successful
-
-  alert("Registration successful! Please login.");
-
-
-  // Go to Login page
-
-  window.location.href = "login.html";
-
-
-});
-
-
-
-/* Phone - allow numbers only */
-
-document
-  .getElementById("phone")
-  .addEventListener("input", function() {
-
-    this.value =
-      this.value.replace(/[^0-9]/g, "");
-
-  });
-
-</script>
-
+<script src="../js/recruiter-auth.js"></script>
 
 </body>
-
 </html>

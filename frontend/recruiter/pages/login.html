@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,120 +10,143 @@
 
 <link rel="stylesheet" href="../../shared/css/common.css">
 <link rel="stylesheet" href="../css/auth.css">
+
 </head>
+
 
 <body>
 
 
 <nav class="navbar">
 
-  <span class="brand">Student Records</span>
+  <span class="brand">
+    Student Records
+  </span>
 
   <div>
-    <a href="../../index.html">Home</a>
-    <a href="register.html">Register</a>
+
+    <a href="../../index.html">
+      Home
+    </a>
+
+    <a href="register.html">
+      Register
+    </a>
+
   </div>
 
 </nav>
+
 
 
 <div class="container">
 
   <div class="auth-card card">
 
-    <span class="eyebrow">Recruiter Portal</span>
+    <span class="eyebrow">
+      Recruiter Portal
+    </span>
 
-    <h2>Recruiter Login</h2>
+
+    <h2>
+      Welcome Back
+    </h2>
+
 
     <p
       class="mt-1"
-      style="color: var(--text-muted);"
-    >
-      Login using your recruiter account
+      style="color:var(--text-muted);">
+
+      Login to access the recruiter dashboard.
+
     </p>
 
 
-    <form id="loginForm" class="mt-2">
 
+    <form
+      id="recruiterLoginForm"
+      class="mt-2">
 
-      <!-- Email -->
 
       <div class="form-group">
 
-        <label for="email">
-          Email ID
+        <label for="loginEmail">
+          Email
         </label>
 
         <input
           type="email"
-          id="email"
-          placeholder="123456789@sastra.ac.in"
+          id="loginEmail"
+          placeholder="staff@sastra.ac.in"
           required
         >
 
         <small
-          id="emailError"
-          style="color: var(--error); display: none;"
-        ></small>
+          id="loginEmailError"
+          style="color:var(--error); display:none;">
+        </small>
 
       </div>
 
 
-      <!-- Password -->
 
       <div class="form-group">
 
-        <label for="password">
+        <label for="loginPassword">
           Password
         </label>
 
         <input
           type="password"
-          id="password"
+          id="loginPassword"
           placeholder="Enter your password"
           required
         >
 
         <small
-          id="passwordError"
-          style="color: var(--error); display: none;"
-        ></small>
+          id="loginPasswordError"
+          style="color:var(--error); display:none;">
+        </small>
 
       </div>
 
 
-      <!-- Login Button -->
 
       <button
         type="submit"
-        class="btn btn-primary"
-      >
+        class="btn btn-primary">
+
         Login
+
       </button>
 
 
-      <div id="formMessage"></div>
-
+      <div id="loginMessage"></div>
 
     </form>
 
 
+
     <p
       class="mt-1"
-      style="font-size: 0.85rem; color: var(--text-muted);"
-    >
-      Don't have an account?
-      <a href="register.html">Register here</a>
-    </p>
+      style="font-size:0.85rem; color:var(--text-muted);">
 
+      Don't have an account?
+
+      <a href="register.html">
+        Register here
+      </a>
+
+    </p>
 
   </div>
 
 </div>
 
 
-<script src="../js/auth.js"></script>
+
+<script src="../js/recruiter-auth.js"></script>
 
 </body>
-</html>
 
+</html>

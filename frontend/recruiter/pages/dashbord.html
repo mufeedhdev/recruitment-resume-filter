@@ -4,12 +4,20 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Recruiter Login</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../../shared/css/common.css">
-<link rel="stylesheet" href="../css/auth.css">
+<title>Recruiter Dashboard</title>
+
+<link
+  rel="stylesheet"
+  href="../../shared/css/common.css">
+
+<link
+  rel="stylesheet"
+  href="../css/dashboard.css">
 
 </head>
 
@@ -19,13 +27,28 @@
 
 <nav class="navbar">
 
-  <span class="brand">Student Records</span>
+  <span class="brand">
+    Student Records
+  </span>
+
 
   <div>
 
-    <a href="../../index.html">Home</a>
+    <a href="../../index.html">
+      Home
+    </a>
 
-    <a href="register.html">Register</a>
+    <a href="dashboard.html">
+      Dashboard
+    </a>
+
+    <a href="profile.html">
+      Profile
+    </a>
+
+    <a href="login.html">
+      Logout
+    </a>
 
   </div>
 
@@ -35,187 +58,280 @@
 
 <div class="container">
 
-  <div class="auth-card card">
 
-    <span class="eyebrow">Recruiter Portal</span>
+  <!-- Welcome Section -->
 
-    <h2>Recruiter Login</h2>
+  <section class="dashboard-header">
 
-    <p
-      class="mt-1"
-      style="color: var(--text-muted);"
-    >
-      Login using your recruiter account.
+    <span class="eyebrow">
+      Recruiter Portal
+    </span>
+
+    <h1>
+      Welcome back, Recruiter
+    </h1>
+
+    <p>
+      Find skilled students and manage recruitment activities.
     </p>
 
-
-
-    <form id="loginForm" class="mt-2">
-
-
-      <!-- Email -->
-
-      <div class="form-group">
-
-        <label for="email">
-          Email ID
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          placeholder="123456789@sastra.ac.in"
-          required
-        >
-
-        <small
-          id="emailError"
-          style="color: var(--error); display: none;"
-        ></small>
-
-      </div>
+  </section>
 
 
 
-      <!-- Password -->
+  <!-- Recruitment Summary -->
 
-      <div class="form-group">
+  <section class="card profile-completion">
 
-        <label for="password">
-          Password
-        </label>
+    <div>
 
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter your password"
-          required
-        >
+      <span class="eyebrow">
+        Recruitment Overview
+      </span>
 
-        <small
-          id="passwordError"
-          style="color: var(--error); display: none;"
-        ></small>
+      <h2>
+        Student Recruitment
+      </h2>
 
-      </div>
+      <p>
+        Search students based on skills, academic performance,
+        achievements and other profile details.
+      </p>
 
+    </div>
 
 
-      <!-- Login Button -->
+    <div class="completion-score">
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-      >
-        Login
-      </button>
+      <strong>
+        25
+      </strong>
 
+      <span>
+        Students Shortlisted
+      </span>
 
-      <div id="formMessage"></div>
+    </div>
 
-
-    </form>
+  </section>
 
 
 
-    <p
-      class="mt-1"
-      style="font-size: 0.85rem; color: var(--text-muted);"
-    >
+  <!-- Dashboard Cards -->
 
-      Don't have an account?
-
-      <a href="register.html">
-        Register here
-      </a>
-
-    </p>
+  <section class="dashboard-grid">
 
 
-  </div>
+    <!-- Recruiter Profile -->
+
+    <a
+      href="profile.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        👤
+      </span>
+
+      <h3>
+        Recruiter Profile
+      </h3>
+
+      <p>
+        Manage your recruiter and department information.
+      </p>
+
+      <span class="dashboard-link">
+        View Profile →
+      </span>
+
+    </a>
+
+
+
+    <!-- Student Search -->
+
+    <a
+      href="students.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        🔎
+      </span>
+
+      <h3>
+        Student Search
+      </h3>
+
+      <p>
+        Search and view student profiles based on requirements.
+      </p>
+
+      <span class="dashboard-link">
+        Search Students →
+      </span>
+
+    </a>
+
+
+
+    <!-- Skill Based Recruitment -->
+
+    <a
+      href="skill-search.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        💻
+      </span>
+
+      <h3>
+        Skill-Based Recruitment
+      </h3>
+
+      <p>
+        Find students based on technical and professional skills.
+      </p>
+
+      <span class="dashboard-link">
+        Find Students →
+      </span>
+
+    </a>
+
+
+
+    <!-- Resume Analyzer -->
+
+    <a
+      href="resume-analyzer.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        📄
+      </span>
+
+      <h3>
+        Resume Analyzer
+      </h3>
+
+      <p>
+        Analyze student resumes and identify suitable candidates.
+      </p>
+
+      <span class="dashboard-link">
+        Analyze Resumes →
+      </span>
+
+    </a>
+
+
+
+    <!-- Shortlisted Students -->
+
+    <a
+      href="shortlisted.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        ⭐
+      </span>
+
+      <h3>
+        Shortlisted Students
+      </h3>
+
+      <p>
+        View students selected for the recruitment process.
+      </p>
+
+      <span class="dashboard-link">
+        View Shortlist →
+      </span>
+
+    </a>
+
+
+
+    <!-- Notifications -->
+
+    <a
+      href="notifications.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        🔔
+      </span>
+
+      <h3>
+        Notifications
+      </h3>
+
+      <p>
+        Send and manage recruitment notifications to students.
+      </p>
+
+      <span class="dashboard-link">
+        View Notifications →
+      </span>
+
+    </a>
+
+
+
+    <!-- Recruitment Reports -->
+
+    <a
+      href="reports.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        📊
+      </span>
+
+      <h3>
+        Recruitment Reports
+      </h3>
+
+      <p>
+        View recruitment statistics and candidate reports.
+      </p>
+
+      <span class="dashboard-link">
+        View Reports →
+      </span>
+
+    </a>
+
+
+
+    <!-- Requirements -->
+
+    <a
+      href="requirements.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        📋
+      </span>
+
+      <h3>
+        Recruitment Requirements
+      </h3>
+
+      <p>
+        Create requirements based on department, skills and CGPA.
+      </p>
+
+      <span class="dashboard-link">
+        Manage Requirements →
+      </span>
+
+    </a>
+
+
+  </section>
 
 </div>
-
-
-
-<script>
-
-
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-
-    const email =
-      document.getElementById("email").value.trim();
-
-    const password =
-      document.getElementById("password").value;
-
-
-    const emailError =
-      document.getElementById("emailError");
-
-    const passwordError =
-      document.getElementById("passwordError");
-
-
-    // Clear old errors
-
-    emailError.textContent = "";
-    emailError.style.display = "none";
-
-    passwordError.textContent = "";
-    passwordError.style.display = "none";
-
-
-    // Email validation
-
-    const emailPattern =
-      /^[0-9]+@sastra\.ac\.in$/;
-
-
-    if (!emailPattern.test(email)) {
-
-      emailError.textContent =
-        "Enter a valid SASTRA email like 123456789@sastra.ac.in";
-
-      emailError.style.display = "block";
-
-      return;
-
-    }
-
-
-    // Password validation
-
-    if (password.length < 6) {
-
-      passwordError.textContent =
-        "Password must contain at least 6 characters.";
-
-      passwordError.style.display = "block";
-
-      return;
-
-    }
-
-
-    /*
-      Login successful
-
-      Go to Recruiter Dashboard
-    */
-
-    window.location.href = "dashboard.html";
-
-
-  });
-
-
-</script>
 
 
 </body>
