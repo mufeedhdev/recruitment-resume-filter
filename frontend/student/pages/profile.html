@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <span class="brand">Recruitment Resume Filter</span>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Profile -->
+    <div class="container">
+
+        <div class="auth-card card">
+
+            <span class="eyebrow">Student Portal</span>
+
+            <h2>Student Profile</h2>
+
+            <p class="login-description">
+                View and update your student information.
+            </p>
+
+
+            <form id="profileForm">
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Register Number -->
+                <div class="form-group">
+
+                    <label for="regNumber">
+                        Register Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="regNumber"
+                        placeholder="123456789"
+                        maxlength="9"
+                        required
+                    >
+
+                    <small
+                        id="regNumberError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- College Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        College Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="123456789@sastra.ac.in"
+                        required
+                    >
+
+                    <small
+                        id="emailError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit mobile number"
+                        maxlength="10"
+                        required
+                    >
+
+                    <small
+                        id="phoneError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- Department -->
+                <div class="form-group">
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <select id="department" required>
+
+                        <option value="">
+                            Select department
+                        </option>
+
+                        <option value="BCA">
+                            BCA
+                        </option>
+
+                        <option value="B.Tech CSE">
+                            B.Tech CSE
+                        </option>
+
+                        <option value="B.Com">
+                            B.Com
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Year -->
+                <div class="form-group">
+
+                    <label for="year">
+                        Year
+                    </label>
+
+                    <select id="year" required>
+
+                        <option value="">
+                            Select year
+                        </option>
+
+                        <option value="1">
+                            1st Year
+                        </option>
+
+                        <option value="2">
+                            2nd Year
+                        </option>
+
+                        <option value="3">
+                            3rd Year
+                        </option>
+
+                        <option value="4">
+                            Final Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CGPA -->
+                <div class="form-group">
+
+                    <label for="cgpa">
+                        CGPA
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cgpa"
+                        step="0.01"
+                        min="0"
+                        max="10"
+                        placeholder="e.g. 8.2"
+                        required
+                    >
+
+                    <small
+                        id="cgpaError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- About / Bio -->
+                <div class="form-group">
+
+                    <label for="bio">
+                        About Me
+                    </label>
+
+                    <textarea
+                        id="bio"
+                        rows="4"
+                        placeholder="Briefly describe yourself, your interests and career goals..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Save Button -->
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Save Profile
+                </button>
+
+
+                <!-- Message -->
+                <div id="profileMessage"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>

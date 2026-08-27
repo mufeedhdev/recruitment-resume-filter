@@ -36,103 +36,71 @@
             <h2>Student Login</h2>
 
             <p class="login-description">
-                Login using your registered college email.
+                Login using your registered college email and password.
             </p>
 
 
             <form id="loginForm">
 
                 <!-- College Email -->
-
                 <div class="form-group">
 
-                    <label for="email">
+                    <label for="loginEmail">
                         College Email
                     </label>
 
                     <input
                         type="email"
-                        id="email"
-                        placeholder="XXXXXXXXX@sastra.ac.in"
+                        id="loginEmail"
+                        placeholder="123456789@sastra.ac.in"
                         required
                     >
 
                     <small
-                        id="emailError"
+                        id="loginEmailError"
                         style="color: var(--error); display: none;">
                     </small>
 
                 </div>
 
 
-                <!-- Send OTP -->
+                <!-- Password -->
+                <div class="form-group">
 
-                <button
-                    type="button"
-                    id="sendOtpBtn"
-                    class="btn btn-primary">
-                    Send OTP
-                </button>
+                    <label for="loginPassword">
+                        Password
+                    </label>
 
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
 
-                <!-- OTP Section -->
-
-                <div
-                    id="otpSection"
-                    style="display: none;">
-
-                    <div class="form-group mt-2">
-
-                        <label for="otp">
-                            Enter OTP
-                        </label>
-
-                        <input
-                            type="text"
-                            id="otp"
-                            placeholder="Enter 6-digit OTP"
-                            maxlength="6"
-                            inputmode="numeric"
-                        >
-
-                        <small
-                            id="otpError"
-                            style="color: var(--error); display: none;">
-                        </small>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary">
-                        Verify OTP
-                    </button>
-
-
-                    <p class="mt-1 otp-resend">
-
-                        Didn't receive the OTP?
-
-                        <button
-                            type="button"
-                            id="resendOtpBtn"
-                            class="resend-btn">
-                            Resend OTP
-                        </button>
-
-                    </p>
+                    <small
+                        id="loginPasswordError"
+                        style="color: var(--error); display: none;">
+                    </small>
 
                 </div>
 
 
-                <!-- Message -->
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Login
+                </button>
 
-                <div id="formMessage"></div>
+
+                <!-- Message -->
+                <div id="loginMessage"></div>
 
             </form>
 
 
+            <!-- Register -->
             <p
                 class="mt-1"
                 style="font-size: 0.85rem; color: var(--text-muted);">

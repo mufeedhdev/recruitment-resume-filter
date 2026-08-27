@@ -2,10 +2,6 @@ console.log("auth.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ==================================================
-    // REGISTER
-    // ==================================================
-
     const registerForm = document.getElementById("registerForm");
     const messageBox = document.getElementById("formMessage");
 
@@ -22,13 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmPasswordError = document.getElementById("confirmPasswordError");
 
 
-    // ------------------------------------------
-    // Register live validation
-    // ------------------------------------------
+    // ---- Live validation while typing ----
 
     function checkRegAndEmailLive() {
-
-        if (!regNumberInput || !emailInput) return;
 
         const regNumber = regNumberInput.value.trim();
         const email = emailInput.value.trim();
@@ -56,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (email && !emailPattern.test(email)) {
 
             emailError.textContent =
-                "Enter a valid college email.";
+                "Must start with your 9-digit register number (e.g. 123456789@sastra.ac.in).";
 
             emailError.style.display = "block";
 
@@ -80,9 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function checkPhoneLive() {
+    // ---- Phone validation while typing ----
 
-        if (!phoneInput) return;
+    function checkPhoneLive() {
 
         const phone = phoneInput.value.trim();
 
@@ -105,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function checkPasswordLive() {
+    // ---- Password validation while typing ----
 
-        if (!passwordInput) return;
+    function checkPasswordLive() {
 
         const password = passwordInput.value;
 
@@ -131,9 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function checkConfirmPasswordLive() {
+    // ---- Confirm password validation while typing ----
 
-        if (!passwordInput || !confirmPasswordInput) return;
+    function checkConfirmPasswordLive() {
 
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
@@ -203,13 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ------------------------------------------
-    // Register submit
-    // ------------------------------------------
+    // ---- Full validation on submit ----
 
     if (registerForm) {
 
-        registerForm.addEventListener("submit", (event) => {
+        registerForm.addEventListener("submit", function (event) {
 
             event.preventDefault();
 
@@ -233,7 +223,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("year").value;
 
             const cgpa =
-                parseFloat(document.getElementById("cgpa").value);
+                parseFloat(
+                    document.getElementById("cgpa").value
+                );
 
             const password =
                 document.getElementById("password").value;
@@ -286,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!emailPattern.test(email)) {
 
                 showMessage(
-                    "Enter a valid college email.",
+                    "Email must start with your 9-digit register number (e.g. 123456789@sastra.ac.in).",
                     "error"
                 );
 
@@ -295,7 +287,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            if (email.split("@")[0] !== regNumber) {
+            const emailRegPart =
+                email.split("@")[0];
+
+
+            if (emailRegPart !== regNumber) {
 
                 showMessage(
                     "Email must match your register number.",
@@ -307,7 +303,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            const phonePattern = /^[0-9]{10}$/;
+            const phonePattern =
+                /^[0-9]{10}$/;
 
 
             if (!phonePattern.test(phone)) {
@@ -334,10 +331,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            if (password.length < 6) {
+            if (password !== confirmPassword) {
 
                 showMessage(
-                    "Password must be at least 6 characters.",
+                    "Passwords do not match.",
                     "error"
                 );
 
@@ -346,10 +343,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            if (password !== confirmPassword) {
+            if (password.length < 6) {
 
                 showMessage(
-                    "Passwords do not match.",
+                    "Password must be at least 6 characters.",
                     "error"
                 );
 
@@ -393,12 +390,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ==================================================
-    // LOGIN WITH OTP
-    // ==================================================
+    // ---- Message function ----
+
+    function showMessage(text, type) {
+
+        if (messageBox) {
+
+            messageBox.textContent = text;
+
+            messageBox.className =
+                "message " + type;
+
+        }
+
+    }
+
+});
+
+
+// ==================================================
+// LOGIN
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
 
     const loginForm =
         document.getElementById("loginForm");
+
 
     if (!loginForm) {
         return;
@@ -406,219 +424,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const loginEmail =
-        document.getElementById("email");
+        document.getElementById("loginEmail");
 
-    const sendOtpBtn =
-        document.getElementById("sendOtpBtn");
+    const loginPassword =
+        document.getElementById("loginPassword");
 
-    const otpSection =
-        document.getElementById("otpSection");
 
-    const otpInput =
-        document.getElementById("otp");
+    const loginEmailError =
+        document.getElementById("loginEmailError");
 
-    const resendOtpBtn =
-        document.getElementById("resendOtpBtn");
+    const loginPasswordError =
+        document.getElementById("loginPasswordError");
 
-    const emailError =
-        document.getElementById("emailError");
-
-    const otpError =
-        document.getElementById("otpError");
 
     const loginMessage =
-        document.getElementById("formMessage");
-
-
-    // This stores the OTP temporarily.
-    // Real OTP generation and email sending
-    // should eventually be handled by your backend.
-    let generatedOTP = null;
+        document.getElementById("loginMessage");
 
 
     // ------------------------------------------
-    // College email validation
-    // ------------------------------------------
-
-    function validateCollegeEmail() {
-
-        const email =
-            loginEmail.value.trim();
-
-
-        // SASTRA college email format
-        const emailPattern =
-            /^[0-9]{9}@sastra\.ac\.in$/;
-
-
-        if (!email) {
-
-            emailError.textContent =
-                "Please enter your college email.";
-
-            emailError.style.display =
-                "block";
-
-            return false;
-
-        }
-
-
-        if (!emailPattern.test(email)) {
-
-            emailError.textContent =
-                "Use your college email, e.g. 123456789@sastra.ac.in";
-
-            emailError.style.display =
-                "block";
-
-            return false;
-
-        }
-
-
-        emailError.style.display =
-            "none";
-
-        return true;
-
-    }
-
-
-    // ------------------------------------------
-    // Email live validation
+    // Email validation
     // ------------------------------------------
 
     loginEmail.addEventListener("input", () => {
 
-        if (emailError) {
-            emailError.style.display = "none";
-        }
-
-    });
-
-
-    // ------------------------------------------
-    // SEND OTP
-    // ------------------------------------------
-
-    sendOtpBtn.addEventListener("click", () => {
-
-        if (!validateCollegeEmail()) {
-            return;
-        }
-
-
         const email =
             loginEmail.value.trim();
 
 
-        // Generate 6-digit OTP
-        generatedOTP =
-            Math.floor(
-                100000 + Math.random() * 900000
-            ).toString();
+        const emailPattern =
+            /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
-        console.log(
-            "Generated OTP:",
-            generatedOTP
-        );
+        if (email && !emailPattern.test(email)) {
 
+            loginEmailError.textContent =
+                "Enter a valid email such as 123456789@sastra.ac.in.";
 
-        // Show OTP section
-        otpSection.style.display =
-            "block";
+            loginEmailError.style.display =
+                "block";
 
+        } else {
 
-        // Disable email field
-        loginEmail.disabled =
-            true;
+            loginEmailError.style.display =
+                "none";
 
-
-        // Change button
-        sendOtpBtn.textContent =
-            "OTP Sent";
-
-        sendOtpBtn.disabled =
-            true;
-
-
-        // Show message
-        loginMessage.textContent =
-            "OTP sent to " + email;
-
-        loginMessage.className =
-            "message success";
-
-
-        /*
-         * DEMO ONLY:
-         *
-         * The OTP is currently printed in the
-         * browser console because we have not
-         * connected an email/SMS backend yet.
-         *
-         * Later:
-         * frontend → backend → email service
-         */
-
-
-        alert(
-            "Demo OTP: " + generatedOTP +
-            "\n\nFor the real project, this OTP should be sent to the student's college email."
-        );
-
-    });
-
-
-    // ------------------------------------------
-    // RESEND OTP
-    // ------------------------------------------
-
-    resendOtpBtn.addEventListener("click", () => {
-
-        if (!loginEmail.value.trim()) {
-            return;
         }
 
-
-        generatedOTP =
-            Math.floor(
-                100000 + Math.random() * 900000
-            ).toString();
+    });
 
 
-        console.log(
-            "New OTP:",
-            generatedOTP
-        );
+    // ------------------------------------------
+    // Password validation
+    // ------------------------------------------
+
+    loginPassword.addEventListener("input", () => {
+
+        const password =
+            loginPassword.value;
 
 
-        otpInput.value = "";
+        if (password && password.length < 6) {
 
+            loginPasswordError.textContent =
+                "Password must be at least 6 characters.";
 
-        otpError.style.display =
-            "none";
+            loginPasswordError.style.display =
+                "block";
 
+        } else {
 
-        loginMessage.textContent =
-            "A new OTP has been sent.";
+            loginPasswordError.style.display =
+                "none";
 
-        loginMessage.className =
-            "message success";
-
-
-        alert(
-            "Demo OTP: " + generatedOTP +
-            "\n\nReal email OTP will be connected through the backend."
-        );
+        }
 
     });
 
 
     // ------------------------------------------
-    // VERIFY OTP
+    // Login submit
     // ------------------------------------------
 
     loginForm.addEventListener("submit", (event) => {
@@ -626,75 +510,76 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
 
-        const enteredOTP =
-            otpInput.value.trim();
+        const email =
+            loginEmail.value.trim();
+
+        const password =
+            loginPassword.value;
 
 
-        // Make sure OTP was requested
-        if (!generatedOTP) {
+        // Check empty fields
 
-            otpError.textContent =
-                "Please request an OTP first.";
+        if (!email || !password) {
 
-            otpError.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        // Check 6 digits
-        if (!/^[0-9]{6}$/.test(enteredOTP)) {
-
-            otpError.textContent =
-                "OTP must be exactly 6 digits.";
-
-            otpError.style.display =
-                "block";
+            showLoginMessage(
+                "Please enter your email and password.",
+                "error"
+            );
 
             return;
 
         }
 
 
-        // Check OTP
-        if (enteredOTP !== generatedOTP) {
+        // Check email
 
-            otpError.textContent =
-                "Invalid OTP. Please try again.";
+        const emailPattern =
+            /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-            otpError.style.display =
-                "block";
+
+        if (!emailPattern.test(email)) {
+
+            showLoginMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
 
             return;
 
         }
 
 
-        // OTP correct
-        otpError.style.display =
-            "none";
+        // Check password length
+
+        if (password.length < 6) {
+
+            showLoginMessage(
+                "Password must be at least 6 characters.",
+                "error"
+            );
+
+            return;
+
+        }
 
 
-        loginMessage.textContent =
-            "OTP verified successfully! Redirecting...";
+        // ------------------------------------------
+        // Temporary login
+        // Backend authentication will be added later
+        // ------------------------------------------
 
-        loginMessage.className =
-            "message success";
+        console.log("Login attempted:", {
+            email: email,
+            password: password
+        });
 
 
-        console.log(
-            "Login successful:",
-            loginEmail.value.trim()
+        showLoginMessage(
+            "Login successful! Redirecting...",
+            "success"
         );
 
 
-        // Clear OTP after successful login
-        generatedOTP = null;
-
-
-        // Redirect
         setTimeout(() => {
 
             window.location.href =
@@ -706,17 +591,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ------------------------------------------
-    // Message function
+    // Login message function
     // ------------------------------------------
 
-    function showMessage(text, type) {
+    function showLoginMessage(text, type) {
 
-        if (messageBox) {
+        if (loginMessage) {
 
-            messageBox.textContent =
+            loginMessage.textContent =
                 text;
 
-            messageBox.className =
+            loginMessage.className =
                 "message " + type;
 
         }
