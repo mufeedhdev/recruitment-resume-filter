@@ -2,351 +2,836 @@ console.log("profile.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const profileForm = document.getElementById("profileForm");
+
+    if (!profileForm) {
+        return;
+    }
+
+
     // ==================================================
-    // ELEMENTS
+    // INPUT ELEMENTS
     // ==================================================
 
-    const profilePhoto =
-        document.getElementById("profilePhoto");
+    const fullNameInput =
+        document.getElementById("fullName");
+
+    const regNumberInput =
+        document.getElementById("regNumber");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const phoneInput =
+        document.getElementById("phone");
+
+    const departmentInput =
+        document.getElementById("department");
+
+    const yearInput =
+        document.getElementById("year");
+
+    const cgpaInput =
+        document.getElementById("cgpa");
+
+    const bioInput =
+        document.getElementById("bio");
+
+    const photoInput =
+        document.getElementById("photo");
 
     const photoPreview =
         document.getElementById("photoPreview");
 
-    const removePhotoBtn =
-        document.getElementById("removePhotoBtn");
 
-    const profileForm =
-        document.getElementById("profileForm");
+    // ==================================================
+    // ERROR ELEMENTS
+    // ==================================================
+
+    const regNumberError =
+        document.getElementById("regNumberError");
+
+    const emailError =
+        document.getElementById("emailError");
+
+    const phoneError =
+        document.getElementById("phoneError");
+
+    const cgpaError =
+        document.getElementById("cgpaError");
+
+
+    // ==================================================
+    // MESSAGE
+    // ==================================================
 
     const profileMessage =
         document.getElementById("profileMessage");
 
 
     // ==================================================
+    // REGISTRATION NUMBER + EMAIL VALIDATION
+    // ==================================================
+
+    function checkRegAndEmailLive() {
+
+        const regNumber =
+            regNumberInput
+                ? regNumberInput.value.trim()
+                : "";
+
+        const email =
+            emailInput
+                ? emailInput.value.trim()
+                : "";
+
+
+        const regNumberPattern =
+            /^[0-9]{9}$/;
+
+
+        const emailPattern =
+            /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+        // Register number
+
+        if (
+            regNumber &&
+            !regNumberPattern.test(regNumber)
+        ) {
+
+            if (regNumberError) {
+
+                regNumberError.textContent =
+                    "Must be exactly 9 digits.";
+
+                regNumberError.style.display =
+                    "block";
+            }
+
+        } else {
+
+            if (regNumberError) {
+                regNumberError.style.display =
+                    "none";
+            }
+
+        }
+
+
+        // Email format
+
+        if (
+            email &&
+            !emailPattern.test(email)
+        ) {
+
+            if (emailError) {
+
+                emailError.textContent =
+                    "Enter a valid college email such as 123456789@sastra.ac.in.";
+
+                emailError.style.display =
+                    "block";
+            }
+
+        }
+
+        // Email register number match
+
+        else if (
+            email &&
+            regNumber &&
+            email.split("@")[0] !== regNumber
+        ) {
+
+            if (emailError) {
+
+                emailError.textContent =
+                    "Email must match your register number.";
+
+                emailError.style.display =
+                    "block";
+            }
+
+        } else {
+
+            if (emailError) {
+                emailError.style.display =
+                    "none";
+            }
+
+        }
+
+    }
+
+
+    // ==================================================
+    // PHONE VALIDATION
+    // ==================================================
+
+    function checkPhoneLive() {
+
+        const phone =
+            phoneInput
+                ? phoneInput.value.trim()
+                : "";
+
+
+        const phonePattern =
+            /^[0-9]{10}$/;
+
+
+        if (
+            phone &&
+            !phonePattern.test(phone)
+        ) {
+
+            if (phoneError) {
+
+                phoneError.textContent =
+                    "Phone number must be exactly 10 digits.";
+
+                phoneError.style.display =
+                    "block";
+            }
+
+        } else {
+
+            if (phoneError) {
+                phoneError.style.display =
+                    "none";
+            }
+
+        }
+
+    }
+
+
+    // ==================================================
+    // CGPA VALIDATION
+    // ==================================================
+
+    function checkCGPALive() {
+
+        const cgpa =
+            cgpaInput
+                ? cgpaInput.value.trim()
+                : "";
+
+
+        if (cgpa === "") {
+
+            if (cgpaError) {
+                cgpaError.style.display =
+                    "none";
+            }
+
+            return;
+        }
+
+
+        const cgpaValue =
+            parseFloat(cgpa);
+
+
+        if (
+            isNaN(cgpaValue) ||
+            cgpaValue < 0 ||
+            cgpaValue > 10
+        ) {
+
+            if (cgpaError) {
+
+                cgpaError.textContent =
+                    "CGPA must be between 0 and 10.";
+
+                cgpaError.style.display =
+                    "block";
+            }
+
+        } else {
+
+            if (cgpaError) {
+                cgpaError.style.display =
+                    "none";
+            }
+
+        }
+
+    }
+
+
+    // ==================================================
+    // ADD LIVE VALIDATION
+    // ==================================================
+
+    if (regNumberInput) {
+
+        regNumberInput.addEventListener(
+            "input",
+            checkRegAndEmailLive
+        );
+
+    }
+
+
+    if (emailInput) {
+
+        emailInput.addEventListener(
+            "input",
+            checkRegAndEmailLive
+        );
+
+    }
+
+
+    if (phoneInput) {
+
+        phoneInput.addEventListener(
+            "input",
+            checkPhoneLive
+        );
+
+    }
+
+
+    if (cgpaInput) {
+
+        cgpaInput.addEventListener(
+            "input",
+            checkCGPALive
+        );
+
+    }
+
+
+    // ==================================================
     // PROFILE PHOTO
     // ==================================================
 
-    if (profilePhoto) {
+    if (photoInput && photoPreview) {
 
-        profilePhoto.addEventListener("change", function () {
+        photoInput.addEventListener(
+            "change",
+            function () {
 
-            const file = this.files[0];
-
-            if (!file) {
-                return;
-            }
-
-
-            // Check file type
-
-            const allowedTypes = [
-                "image/jpeg",
-                "image/png",
-                "image/webp"
-            ];
-
-            if (!allowedTypes.includes(file.type)) {
-
-                alert(
-                    "Please select a JPG, PNG or WebP image."
-                );
-
-                this.value = "";
-
-                photoPreview.src = "";
-
-                photoPreview.style.display = "none";
-
-                return;
-            }
+                const file =
+                    this.files[0];
 
 
-            // Check file size
-
-            if (file.size > 2 * 1024 * 1024) {
-
-                alert(
-                    "Photo must be smaller than 2 MB."
-                );
-
-                this.value = "";
-
-                photoPreview.src = "";
-
-                photoPreview.style.display = "none";
-
-                return;
-            }
+                if (!file) {
+                    return;
+                }
 
 
-            // Create photo preview
+                // Check image type
 
-            const reader = new FileReader();
+                if (!file.type.startsWith("image/")) {
 
-            reader.onload = function (event) {
-
-                photoPreview.src =
-                    event.target.result;
-
-                photoPreview.style.display =
-                    "block";
-
-            };
-
-            reader.readAsDataURL(file);
-
-        });
-
-    }
-
-
-    // ==================================================
-    // REMOVE PHOTO
-    // ==================================================
-
-    if (removePhotoBtn) {
-
-        removePhotoBtn.addEventListener("click", function () {
-
-            profilePhoto.value = "";
-
-            photoPreview.src = "";
-
-            photoPreview.style.display = "none";
-
-        });
-
-    }
-
-
-    // ==================================================
-    // PROFILE FORM
-    // ==================================================
-
-    if (profileForm) {
-
-        profileForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                // Get values
-
-                const fullName =
-                    document.getElementById("fullName")
-                    .value
-                    .trim();
-
-                const regNumber =
-                    document.getElementById("regNumber")
-                    .value
-                    .trim();
-
-                const email =
-                    document.getElementById("email")
-                    .value
-                    .trim();
-
-                const phone =
-                    document.getElementById("phone")
-                    .value
-                    .trim();
-
-                const department =
-                    document.getElementById("department")
-                    .value;
-
-                const year =
-                    document.getElementById("year")
-                    .value;
-
-                const cgpa =
-                    parseFloat(
-                        document.getElementById("cgpa").value
+                    showMessage(
+                        "Please select a valid image file.",
+                        "error"
                     );
 
-                const bio =
-                    document.getElementById("bio")
-                    .value
-                    .trim();
-
-
-                // Error elements
-
-                const regNumberError =
-                    document.getElementById("regNumberError");
-
-                const emailError =
-                    document.getElementById("emailError");
-
-                const phoneError =
-                    document.getElementById("phoneError");
-
-                const cgpaError =
-                    document.getElementById("cgpaError");
-
-
-                // ==================================================
-                // REGISTER NUMBER VALIDATION
-                // ==================================================
-
-                const regNumberPattern =
-                    /^[0-9]{9}$/;
-
-                if (!regNumberPattern.test(regNumber)) {
-
-                    regNumberError.textContent =
-                        "Register number must be exactly 9 digits.";
-
-                    regNumberError.style.display =
-                        "block";
-
-                    return;
-
-                } else {
-
-                    regNumberError.style.display =
-                        "none";
-
-                }
-
-
-                // ==================================================
-                // EMAIL VALIDATION
-                // ==================================================
-
-                const emailPattern =
-                    /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-
-                if (!emailPattern.test(email)) {
-
-                    emailError.textContent =
-                        "Enter a valid college email address.";
-
-                    emailError.style.display =
-                        "block";
+                    this.value = "";
 
                     return;
                 }
 
 
-                if (email.split("@")[0] !== regNumber) {
+                // Maximum 5 MB
 
-                    emailError.textContent =
-                        "Email must match your register number.";
+                const maxSize =
+                    5 * 1024 * 1024;
 
-                    emailError.style.display =
-                        "block";
+
+                if (file.size > maxSize) {
+
+                    showMessage(
+                        "Photo size must be less than 5 MB.",
+                        "error"
+                    );
+
+                    this.value = "";
 
                     return;
-
-                } else {
-
-                    emailError.style.display =
-                        "none";
-
                 }
 
 
-                // ==================================================
-                // PHONE VALIDATION
-                // ==================================================
+                // Preview image
 
-                const phonePattern =
-                    /^[0-9]{10}$/;
+                const reader =
+                    new FileReader();
 
 
-                if (!phonePattern.test(phone)) {
+                reader.onload =
+                    function (event) {
 
-                    phoneError.textContent =
-                        "Phone number must be exactly 10 digits.";
+                        photoPreview.src =
+                            event.target.result;
 
-                    phoneError.style.display =
-                        "block";
-
-                    return;
-
-                } else {
-
-                    phoneError.style.display =
-                        "none";
-
-                }
+                    };
 
 
-                // ==================================================
-                // CGPA VALIDATION
-                // ==================================================
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+    }
+
+
+    // ==================================================
+    // LOAD SAVED PROFILE
+    // ==================================================
+
+    loadProfile();
+
+
+    function loadProfile() {
+
+        const savedProfile =
+            localStorage.getItem(
+                "studentProfile"
+            );
+
+
+        if (!savedProfile) {
+            return;
+        }
+
+
+        try {
+
+            const profile =
+                JSON.parse(savedProfile);
+
+
+            if (fullNameInput) {
+
+                fullNameInput.value =
+                    profile.fullName || "";
+
+            }
+
+
+            if (regNumberInput) {
+
+                regNumberInput.value =
+                    profile.regNumber || "";
+
+            }
+
+
+            if (emailInput) {
+
+                emailInput.value =
+                    profile.email || "";
+
+            }
+
+
+            if (phoneInput) {
+
+                phoneInput.value =
+                    profile.phone || "";
+
+            }
+
+
+            if (departmentInput) {
+
+                departmentInput.value =
+                    profile.department || "";
+
+            }
+
+
+            if (yearInput) {
+
+                yearInput.value =
+                    profile.year || "";
+
+            }
+
+
+            if (cgpaInput) {
+
+                cgpaInput.value =
+                    profile.cgpa || "";
+
+            }
+
+
+            if (bioInput) {
+
+                bioInput.value =
+                    profile.bio || "";
+
+            }
+
+
+            // Load photo
+
+            if (
+                profile.photo &&
+                photoPreview
+            ) {
+
+                photoPreview.src =
+                    profile.photo;
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "Error loading profile:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // ==================================================
+    // FORM SUBMIT
+    // ==================================================
+
+    profileForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            // ------------------------------------------
+            // Get values
+            // ------------------------------------------
+
+            const fullName =
+                fullNameInput
+                    ? fullNameInput.value.trim()
+                    : "";
+
+            const regNumber =
+                regNumberInput
+                    ? regNumberInput.value.trim()
+                    : "";
+
+            const email =
+                emailInput
+                    ? emailInput.value.trim()
+                    : "";
+
+            const phone =
+                phoneInput
+                    ? phoneInput.value.trim()
+                    : "";
+
+            const department =
+                departmentInput
+                    ? departmentInput.value
+                    : "";
+
+            const year =
+                yearInput
+                    ? yearInput.value
+                    : "";
+
+            const cgpa =
+                cgpaInput
+                    ? cgpaInput.value.trim()
+                    : "";
+
+            const bio =
+                bioInput
+                    ? bioInput.value.trim()
+                    : "";
+
+
+            // ------------------------------------------
+            // Required fields
+            // ------------------------------------------
+
+            if (
+                !fullName ||
+                !regNumber ||
+                !email ||
+                !phone ||
+                !department ||
+                !year
+            ) {
+
+                showMessage(
+                    "Please fill in all required fields.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            // ------------------------------------------
+            // Register number
+            // ------------------------------------------
+
+            const regNumberPattern =
+                /^[0-9]{9}$/;
+
+
+            if (
+                !regNumberPattern.test(regNumber)
+            ) {
+
+                showMessage(
+                    "Register number must be exactly 9 digits.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            // ------------------------------------------
+            // Email
+            // ------------------------------------------
+
+            const emailPattern =
+                /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+            if (
+                !emailPattern.test(email)
+            ) {
+
+                showMessage(
+                    "Enter a valid college email.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            // ------------------------------------------
+            // Email must match register number
+            // ------------------------------------------
+
+            if (
+                email.split("@")[0] !==
+                regNumber
+            ) {
+
+                showMessage(
+                    "Email must match your register number.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            // ------------------------------------------
+            // Phone
+            // ------------------------------------------
+
+            const phonePattern =
+                /^[0-9]{10}$/;
+
+
+            if (
+                !phonePattern.test(phone)
+            ) {
+
+                showMessage(
+                    "Phone number must be exactly 10 digits.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            // ------------------------------------------
+            // CGPA
+            // ------------------------------------------
+
+            if (cgpa !== "") {
+
+                const cgpaValue =
+                    parseFloat(cgpa);
+
 
                 if (
-                    isNaN(cgpa) ||
-                    cgpa < 0 ||
-                    cgpa > 10
+                    isNaN(cgpaValue) ||
+                    cgpaValue < 0 ||
+                    cgpaValue > 10
                 ) {
 
-                    cgpaError.textContent =
-                        "CGPA must be between 0 and 10.";
-
-                    cgpaError.style.display =
-                        "block";
+                    showMessage(
+                        "CGPA must be between 0 and 10.",
+                        "error"
+                    );
 
                     return;
+                }
 
-                } else {
+            }
 
-                    cgpaError.style.display =
-                        "none";
+
+            // ------------------------------------------
+            // Get existing photo
+            // ------------------------------------------
+
+            let existingPhoto = "";
+
+
+            const oldProfile =
+                localStorage.getItem(
+                    "studentProfile"
+                );
+
+
+            if (oldProfile) {
+
+                try {
+
+                    const oldData =
+                        JSON.parse(oldProfile);
+
+                    existingPhoto =
+                        oldData.photo || "";
+
+                } catch (error) {
+
+                    console.error(error);
 
                 }
 
+            }
 
-                // ==================================================
-                // SAVE PROFILE
-                // ==================================================
 
-                const profileData = {
+            // ------------------------------------------
+            // Save profile
+            // ------------------------------------------
 
-                    fullName: fullName,
+            function saveProfile(photo) {
 
-                    regNumber: regNumber,
+                const studentProfile = {
 
-                    email: email,
+                    fullName:
+                        fullName,
 
-                    phone: phone,
+                    regNumber:
+                        regNumber,
 
-                    department: department,
+                    email:
+                        email,
 
-                    year: year,
+                    phone:
+                        phone,
 
-                    cgpa: cgpa,
+                    department:
+                        department,
 
-                    bio: bio,
+                    year:
+                        year,
+
+                    cgpa:
+                        cgpa,
+
+                    bio:
+                        bio,
 
                     photo:
-                        profilePhoto.files[0] || null
+                        photo
 
                 };
 
 
-                console.log(
-                    "Profile saved:",
-                    profileData
+                localStorage.setItem(
+                    "studentProfile",
+                    JSON.stringify(studentProfile)
                 );
 
 
-                // Success message
+                console.log(
+                    "Student profile saved:",
+                    studentProfile
+                );
 
-                profileMessage.textContent =
-                    "Profile saved successfully.";
 
-                profileMessage.className =
-                    "message success";
+                showMessage(
+                    "Profile saved successfully.",
+                    "success"
+                );
 
             }
-        );
+
+
+            // ------------------------------------------
+            // Save new photo if selected
+            // ------------------------------------------
+
+            if (
+                photoInput &&
+                photoInput.files[0]
+            ) {
+
+                const file =
+                    photoInput.files[0];
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    function (event) {
+
+                        saveProfile(
+                            event.target.result
+                        );
+
+                    };
+
+
+                reader.readAsDataURL(file);
+
+            } else {
+
+                saveProfile(
+                    existingPhoto
+                );
+
+            }
+
+        }
+    );
+
+
+    // ==================================================
+    // MESSAGE FUNCTION
+    // ==================================================
+
+    function showMessage(text, type) {
+
+        if (!profileMessage) {
+            return;
+        }
+
+
+        profileMessage.textContent =
+            text;
+
+
+        profileMessage.className =
+            "message " + type;
 
     }
 
