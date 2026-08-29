@@ -43,6 +43,53 @@
 
             <form id="profileForm">
 
+
+                <!-- Profile Photo -->
+                <div class="form-group text-center">
+
+                    <label for="profilePhoto">
+                        Profile Photo
+                    </label>
+
+                    <!-- Photo Preview -->
+                    <div style="margin: 1rem 0;">
+
+                        <img
+                            id="photoPreview"
+                            src=""
+                            alt="Profile Photo"
+                            style="
+                                width: 130px;
+                                height: 130px;
+                                object-fit: cover;
+                                border-radius: 50%;
+                                border: 2px solid var(--border);
+                                display: none;
+                                margin: 0 auto;
+                            "
+                        >
+
+                    </div>
+
+
+                    <input
+                        type="file"
+                        id="profilePhoto"
+                        accept="image/jpeg, image/png, image/webp"
+                    >
+
+                    <small
+                        style="
+                            display: block;
+                            margin-top: 0.4rem;
+                            color: var(--text-muted);
+                        ">
+                        Upload JPG, PNG or WebP. Maximum recommended size: 2 MB.
+                    </small>
+
+                </div>
+
+
                 <!-- Full Name -->
                 <div class="form-group">
 
@@ -77,7 +124,10 @@
 
                     <small
                         id="regNumberError"
-                        style="color: var(--error); display: none;">
+                        style="
+                            color: var(--error);
+                            display: none;
+                        ">
                     </small>
 
                 </div>
@@ -99,7 +149,10 @@
 
                     <small
                         id="emailError"
-                        style="color: var(--error); display: none;">
+                        style="
+                            color: var(--error);
+                            display: none;
+                        ">
                     </small>
 
                 </div>
@@ -122,7 +175,10 @@
 
                     <small
                         id="phoneError"
-                        style="color: var(--error); display: none;">
+                        style="
+                            color: var(--error);
+                            display: none;
+                        ">
                     </small>
 
                 </div>
@@ -215,13 +271,16 @@
 
                     <small
                         id="cgpaError"
-                        style="color: var(--error); display: none;">
+                        style="
+                            color: var(--error);
+                            display: none;
+                        ">
                     </small>
 
                 </div>
 
 
-                <!-- About / Bio -->
+                <!-- About Me -->
                 <div class="form-group">
 
                     <label for="bio">
@@ -255,7 +314,282 @@
     </div>
 
 
-    <script src="../js/profile.js"></script>
+    <script>
+
+        // ==========================================
+        // PROFILE PHOTO PREVIEW
+        // ==========================================
+
+        const profilePhoto =
+            document.getElementById("profilePhoto");
+
+        const photoPreview =
+            document.getElementById("photoPreview");
+
+
+        profilePhoto.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+
+            if (!file) {
+
+                photoPreview.style.display = "none";
+
+                return;
+
+            }
+
+
+            // Check file type
+
+            if (!file.type.startsWith("image/")) {
+
+                alert("Please select an image file.");
+
+                this.value = "";
+
+                photoPreview.style.display = "none";
+
+                return;
+
+            }
+
+
+            // Check file size
+
+            if (file.size > 2 * 1024 * 1024) {
+
+                alert("Photo must be smaller than 2 MB.");
+
+                this.value = "";
+
+                photoPreview.style.display = "none";
+
+                return;
+
+            }
+
+
+            // Show preview
+
+            const reader = new FileReader();
+
+
+            reader.onload = function (event) {
+
+                photoPreview.src =
+                    event.target.result;
+
+                photoPreview.style.display =
+                    "block";
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        });
+
+
+        // ==========================================
+        // PROFILE FORM
+        // ==========================================
+
+        const profileForm =
+            document.getElementById("profileForm");
+
+        const profileMessage =
+            document.getElementById("profileMessage");
+
+
+        profileForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const regNumber =
+                document.getElementById("regNumber")
+                .value
+                .trim();
+
+            const email =
+                document.getElementById("email")
+                .value
+                .trim();
+
+            const phone =
+                document.getElementById("phone")
+                .value
+                .trim();
+
+            const cgpa =
+                parseFloat(
+                    document.getElementById("cgpa").value
+                );
+
+
+            const regNumberError =
+                document.getElementById("regNumberError");
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const phoneError =
+                document.getElementById("phoneError");
+
+            const cgpaError =
+                document.getElementById("cgpaError");
+
+
+            // Register number validation
+
+            const regNumberPattern =
+                /^[0-9]{9}$/;
+
+
+            if (!regNumberPattern.test(regNumber)) {
+
+                regNumberError.textContent =
+                    "Register number must be exactly 9 digits.";
+
+                regNumberError.style.display =
+                    "block";
+
+                return;
+
+            } else {
+
+                regNumberError.style.display =
+                    "none";
+
+            }
+
+
+            // Email validation
+
+            const emailPattern =
+                /^[0-9]{9}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                emailError.textContent =
+                    "Enter a valid college email address.";
+
+                emailError.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            if (email.split("@")[0] !== regNumber) {
+
+                emailError.textContent =
+                    "Email must match your register number.";
+
+                emailError.style.display =
+                    "block";
+
+                return;
+
+            } else {
+
+                emailError.style.display =
+                    "none";
+
+            }
+
+
+            // Phone validation
+
+            const phonePattern =
+                /^[0-9]{10}$/;
+
+
+            if (!phonePattern.test(phone)) {
+
+                phoneError.textContent =
+                    "Phone number must be exactly 10 digits.";
+
+                phoneError.style.display =
+                    "block";
+
+                return;
+
+            } else {
+
+                phoneError.style.display =
+                    "none";
+
+            }
+
+
+            // CGPA validation
+
+            if (isNaN(cgpa) || cgpa < 0 || cgpa > 10) {
+
+                cgpaError.textContent =
+                    "CGPA must be between 0 and 10.";
+
+                cgpaError.style.display =
+                    "block";
+
+                return;
+
+            } else {
+
+                cgpaError.style.display =
+                    "none";
+
+            }
+
+
+            // Temporary save
+
+            profileMessage.textContent =
+                "Profile saved successfully.";
+
+            profileMessage.className =
+                "message success";
+
+
+            console.log("Profile saved:", {
+
+                fullName:
+                    document.getElementById("fullName").value,
+
+                regNumber:
+                    regNumber,
+
+                email:
+                    email,
+
+                phone:
+                    phone,
+
+                department:
+                    document.getElementById("department").value,
+
+                year:
+                    document.getElementById("year").value,
+
+                cgpa:
+                    cgpa,
+
+                bio:
+                    document.getElementById("bio").value,
+
+                photo:
+                    profilePhoto.files[0] || null
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
