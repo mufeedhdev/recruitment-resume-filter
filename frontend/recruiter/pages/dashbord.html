@@ -3,14 +3,21 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
 
-  <title>Admin Dashboard — Student Records</title>
+<title>Recruiter Dashboard</title>
 
-  <!-- Common CSS Reference -->
-  <link rel="stylesheet" href="../../shared/css/common.css">
+<link
+  rel="stylesheet"
+  href="../../shared/css/common.css">
+
+<link
+  rel="stylesheet"
+  href="../css/dashboard.css">
 
 </head>
 
@@ -18,22 +25,30 @@
 <body>
 
 
-<!-- Navigation Bar -->
-
 <nav class="navbar">
 
-  <span class="brand">Student Records</span>
+  <span class="brand">
+    Student Records
+  </span>
+
 
   <div>
 
-    <!-- Index Page -->
-    <a href="../../index.html">Home</a>
+    <a href="../../index.html">
+      Home
+    </a>
 
-    <!-- Dashboard -->
-    <a href="dashboard.html">Dashboard</a>
+    <a href="dashboard.html">
+      Dashboard
+    </a>
 
-    <!-- Logout -->
-    <a href="login.html">Logout</a>
+    <a href="profile.html">
+      Profile
+    </a>
+
+    <a href="login.html">
+      Logout
+    </a>
 
   </div>
 
@@ -41,227 +56,284 @@
 
 
 
-<!-- Main Container -->
-
 <div class="container">
 
 
-  <!-- Dashboard Header -->
+  <!-- Welcome Section -->
 
-  <div class="card">
+  <section class="dashboard-header">
 
-    <span class="eyebrow">Admin Portal</span>
+    <span class="eyebrow">
+      Recruiter Portal
+    </span>
 
-    <h2>Admin Dashboard</h2>
+    <h1>
+      Welcome back, Recruiter
+    </h1>
 
-    <p class="mt-1" style="color: var(--text-muted);">
-      Manage student records, recruitment activities, and profiles.
+    <p>
+      Find skilled students and manage recruitment activities.
     </p>
 
-  </div>
+  </section>
 
 
 
-  <!-- Dashboard Statistics -->
+  <!-- Recruitment Summary -->
 
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-    "
-  >
+  <section class="card profile-completion">
 
+    <div>
 
-    <!-- Total Students -->
+      <span class="eyebrow">
+        Recruitment Overview
+      </span>
 
-    <div class="card">
+      <h2>
+        Student Recruitment
+      </h2>
 
-      <span class="eyebrow">Students</span>
-
-      <h2>250</h2>
-
-      <p style="color: var(--text-muted);">
-        Total Registered Students
+      <p>
+        Search students based on skills, academic performance,
+        achievements and other profile details.
       </p>
 
     </div>
 
 
-    <!-- Active Profiles -->
+    <div class="completion-score">
 
-    <div class="card">
+      <strong>
+        25
+      </strong>
 
-      <span class="eyebrow">Profiles</span>
-
-      <h2>210</h2>
-
-      <p style="color: var(--text-muted);">
-        Active Student Profiles
-      </p>
+      <span>
+        Students Shortlisted
+      </span>
 
     </div>
 
+  </section>
 
-    <!-- Recruitments -->
 
-    <div class="card">
 
-      <span class="eyebrow">Recruitment</span>
+  <!-- Dashboard Cards -->
 
-      <h2>25</h2>
+  <section class="dashboard-grid">
 
-      <p style="color: var(--text-muted);">
-        Active Recruitment Drives
+
+    <!-- Recruiter Profile -->
+
+    <a
+      href="profile.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        👤
+      </span>
+
+      <h3>
+        Recruiter Profile
+      </h3>
+
+      <p>
+        Manage your recruiter and department information.
       </p>
 
-    </div>
+      <span class="dashboard-link">
+        View Profile →
+      </span>
+
+    </a>
 
 
-    <!-- Selected Students -->
 
-    <div class="card">
+    <!-- Student Search -->
 
-      <span class="eyebrow">Selected</span>
+    <a
+      href="students.html"
+      class="dashboard-card">
 
-      <h2>45</h2>
+      <span class="dashboard-icon">
+        🔎
+      </span>
 
-      <p style="color: var(--text-muted);">
-        Students Selected
+      <h3>
+        Student Search
+      </h3>
+
+      <p>
+        Search and view student profiles based on requirements.
       </p>
 
-    </div>
+      <span class="dashboard-link">
+        Search Students →
+      </span>
+
+    </a>
 
 
-  </div>
 
+    <!-- Skill Based Recruitment -->
 
+    <a
+      href="skill-search.html"
+      class="dashboard-card">
 
-  <!-- Admin Management -->
+      <span class="dashboard-icon">
+        💻
+      </span>
 
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-    "
-  >
+      <h3>
+        Skill-Based Recruitment
+      </h3>
 
-
-    <!-- Student Management -->
-
-    <div class="card">
-
-      <span class="eyebrow">Management</span>
-
-      <h3>Student Records</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        View, search, and manage student profiles,
-        skills, CGPA, resumes, and achievements.
+      <p>
+        Find students based on technical and professional skills.
       </p>
 
-      <div class="mt-2">
+      <span class="dashboard-link">
+        Find Students →
+      </span>
 
-        <a href="#" class="btn btn-primary">
-          View Students
-        </a>
-
-      </div>
-
-    </div>
+    </a>
 
 
-    <!-- Recruitment Management -->
 
-    <div class="card">
+    <!-- Resume Analyzer -->
 
-      <span class="eyebrow">Management</span>
+    <a
+      href="resume-analyzer.html"
+      class="dashboard-card">
 
-      <h3>Recruitment</h3>
+      <span class="dashboard-icon">
+        📄
+      </span>
 
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        Manage recruitment drives, company requirements,
-        student selection, and placement details.
+      <h3>
+        Resume Analyzer
+      </h3>
+
+      <p>
+        Analyze student resumes and identify suitable candidates.
       </p>
 
-      <div class="mt-2">
+      <span class="dashboard-link">
+        Analyze Resumes →
+      </span>
 
-        <a href="#" class="btn btn-primary">
-          Manage Recruitment
-        </a>
-
-      </div>
-
-    </div>
+    </a>
 
 
-    <!-- Events Management -->
 
-    <div class="card">
+    <!-- Shortlisted Students -->
 
-      <span class="eyebrow">Management</span>
+    <a
+      href="shortlisted.html"
+      class="dashboard-card">
 
-      <h3>Events & Activities</h3>
+      <span class="dashboard-icon">
+        ⭐
+      </span>
 
-      <p style="color: var(--text-muted); margin-top: 0.4rem;">
-        Manage workshops, seminars, events,
-        certifications, and student participation.
+      <h3>
+        Shortlisted Students
+      </h3>
+
+      <p>
+        View students selected for the recruitment process.
       </p>
 
-      <div class="mt-2">
+      <span class="dashboard-link">
+        View Shortlist →
+      </span>
 
-        <a href="#" class="btn btn-primary">
-          Manage Events
-        </a>
-
-      </div>
-
-    </div>
-
-
-  </div>
+    </a>
 
 
 
-  <!-- Recent Activities -->
+    <!-- Notifications -->
 
-  <div class="card mt-2">
+    <a
+      href="notifications.html"
+      class="dashboard-card">
 
-    <span class="eyebrow">Recent Activity</span>
+      <span class="dashboard-icon">
+        🔔
+      </span>
 
-    <h3>Latest Updates</h3>
+      <h3>
+        Notifications
+      </h3>
 
-    <div style="margin-top: 1rem;">
-
-      <p style="color: var(--text-muted);">
-        • New student profile registered
+      <p>
+        Send and manage recruitment notifications to students.
       </p>
 
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • Recruitment drive updated
+      <span class="dashboard-link">
+        View Notifications →
+      </span>
+
+    </a>
+
+
+
+    <!-- Recruitment Reports -->
+
+    <a
+      href="reports.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        📊
+      </span>
+
+      <h3>
+        Recruitment Reports
+      </h3>
+
+      <p>
+        View recruitment statistics and candidate reports.
       </p>
 
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • Student certification added
+      <span class="dashboard-link">
+        View Reports →
+      </span>
+
+    </a>
+
+
+
+    <!-- Requirements -->
+
+    <a
+      href="requirements.html"
+      class="dashboard-card">
+
+      <span class="dashboard-icon">
+        📋
+      </span>
+
+      <h3>
+        Recruitment Requirements
+      </h3>
+
+      <p>
+        Create requirements based on department, skills and CGPA.
       </p>
 
-      <p style="color: var(--text-muted); margin-top: 0.6rem;">
-        • New student selected for recruitment
-      </p>
+      <span class="dashboard-link">
+        Manage Requirements →
+      </span>
 
-    </div>
-
-  </div>
+    </a>
 
 
+  </section>
 
 </div>
 
 
 </body>
 
-</html>
-
+</html> 

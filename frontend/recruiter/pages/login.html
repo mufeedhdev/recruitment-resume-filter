@@ -3,14 +3,13 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruiter Login</title>
 
-  <title>Admin Login — Student Records</title>
-
-  <!-- Common CSS Reference -->
-  <link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../../shared/css/common.css">
+<link rel="stylesheet" href="../css/auth.css">
 
 </head>
 
@@ -18,171 +17,135 @@
 <body>
 
 
-<!-- Navigation Bar -->
-
 <nav class="navbar">
 
-  <span class="brand">Student Records</span>
+  <span class="brand">
+    Student Records
+  </span>
 
   <div>
 
-    <!-- Index Page Reference -->
-    <a href="../../index.html">Home</a>
+    <a href="../../index.html">
+      Home
+    </a>
 
-    <a href="login.html">Admin Login</a>
-
+    <a href="register.html">
+      Register
+    </a>
+   
   </div>
 
 </nav>
 
 
 
-<!-- Main Container -->
-
 <div class="container">
 
+  <div class="auth-card card">
 
-  <!-- Admin Login Card -->
+    <span class="eyebrow">
+      Recruiter Portal
+    </span>
 
-  <div class="card">
 
-    <span class="eyebrow">Admin Portal</span>
+    <h2>
+      Welcome Back
+    </h2>
 
-    <h2>Admin Login</h2>
 
-    <p class="mt-1" style="color: var(--text-muted);">
-      Login to manage student records and recruitment activities.
+    <p
+      class="mt-1"
+      style="color:var(--text-muted);">
+
+      Login to access the recruiter dashboard.
+
     </p>
 
 
-    <!-- Admin Login Form -->
 
-    <form id="adminLoginForm" class="mt-2">
+    <form
+      id="recruiterLoginForm"
+      class="mt-2">
 
-
-      <!-- Admin Email -->
 
       <div class="form-group">
 
-        <label for="adminEmail">Admin Email</label>
+        <label for="loginEmail">
+          Email
+        </label>
 
         <input
           type="email"
-          id="adminEmail"
-          placeholder="Enter admin email"
+          id="loginEmail"
+          placeholder="staff@sastra.ac.in"
           required
         >
 
         <small
-          id="adminEmailError"
-          style="color: var(--error); display: none;">
+          id="loginEmailError"
+          style="color:var(--error); display:none;">
         </small>
 
       </div>
 
 
-      <!-- Password -->
 
       <div class="form-group">
 
-        <label for="adminPassword">Password</label>
+        <label for="loginPassword">
+          Password
+        </label>
 
         <input
           type="password"
-          id="adminPassword"
+          id="loginPassword"
           placeholder="Enter your password"
           required
         >
 
         <small
-          id="adminPasswordError"
-          style="color: var(--error); display: none;">
+          id="loginPasswordError"
+          style="color:var(--error); display:none;">
         </small>
 
       </div>
 
 
-      <!-- Login Button -->
 
-      <button type="submit" class="btn btn-primary">
-        Admin Login
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        Login
+
       </button>
 
 
-      <!-- Login Message -->
-
-      <div id="adminLoginMessage"></div>
-
+      <div id="loginMessage"></div>
 
     </form>
 
-  </div>
 
 
+    <p
+      class="mt-1"
+      style="font-size:0.85rem; color:var(--text-muted);">
 
-  <!-- Admin Features -->
+      Don't have an account?
 
-  <div
-    class="mt-2"
-    style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-    "
-  >
+      <a href="register.html">
+        Register here
+      </a>
 
-
-    <!-- Feature 1 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 1</span>
-
-      <h3>Admin Login</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Login securely using your admin email and password.
-      </p>
-
-    </div>
-
-
-    <!-- Feature 2 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 2</span>
-
-      <h3>Manage Students</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        View and manage student profiles, skills, CGPA,
-        resumes, events, and certifications.
-      </p>
-
-    </div>
-
-
-    <!-- Feature 3 -->
-
-    <div class="card">
-
-      <span class="eyebrow">Step 3</span>
-
-      <h3>Recruitment</h3>
-
-      <p style="color: var(--text-muted); margin-top: 0.4rem; font-size: 0.9rem;">
-        Search students and manage recruitment and selection details.
-      </p>
-
-    </div>
-
+    </p>
 
   </div>
-
 
 </div>
 
+
+
+<script src="../js/recruiter-auth.js"></script>
 
 </body>
 
