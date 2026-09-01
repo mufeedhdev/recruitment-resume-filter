@@ -1,178 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Recruiter Registration</title>
+    <title>Recruiter Registration</title>
 
-<link rel="stylesheet" href="../../shared/css/common.css">
-<link rel="stylesheet" href="../css/auth.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 
 <body>
 
-<nav class="navbar">
-  <span class="brand">Student Records</span>
+    <!-- ================= NAVBAR ================= -->
 
-  <div>
-    <a href="../../index.html">Home</a>
-    <a href="login.html">Login</a>
-  </div>
-</nav>
+    <nav class="navbar">
 
+        <div class="brand">
+            Recruitment Portal
+        </div>
 
-<div class="container">
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="login.html">Login</a>
+        </div>
 
-  <div class="auth-card card">
-
-    <span class="eyebrow">Recruiter Portal</span>
-
-    <h2>Create Recruiter Account</h2>
-
-    <form id="recruiterRegisterForm" class="mt-2">
-
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Enter your name"
-          required
-        >
-      </div>
+    </nav>
 
 
-      <div class="form-group">
-        <label for="department">Department</label>
+    <!-- ================= REGISTER SECTION ================= -->
 
-        <select id="department" required>
-          <option value="">Select Department</option>
-          <option value="CSE">CSE</option>
-          <option value="ECE">ECE</option>
-          <option value="BCA">BCA</option>
-          <option value="B.Com">B.Com</option>
-          <option value="Mathematics">Mathematics</option>
-          <option value="Training & Placement">
-            Training & Placement
-          </option>
-        </select>
-      </div>
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Recruiter Registration</h1>
+
+            <p class="subtitle">
+                Create your recruiter account
+            </p>
 
 
-      <div class="form-group">
-        <label for="staffId">Staff ID</label>
+            <!-- ================= REGISTER FORM ================= -->
 
-        <input
-          type="text"
-          id="staffId"
-          placeholder="Enter Staff ID"
-          required
-        >
-      </div>
+            <form id="registerForm">
 
+                <!-- Staff Name -->
 
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
+                <div class="form-group">
 
-        <input
-          type="tel"
-          id="phone"
-          placeholder="10-digit mobile number"
-          maxlength="10"
-          required
-        >
+                    <label for="staffName">
+                        Staff Name
+                    </label>
 
-        <small
-          id="phoneError"
-          style="color: var(--error); display:none;">
-        </small>
-      </div>
+                    <input
+                        type="text"
+                        id="staffName"
+                        name="staffName"
+                        placeholder="Enter Staff Name"
+                        required
+                    >
+
+                </div>
 
 
-      <div class="form-group">
-        <label for="email">Email</label>
+                <!-- Department -->
 
-        <input
-          type="email"
-          id="email"
-          placeholder="staff@sastra.ac.in"
-          required
-        >
+                <div class="form-group">
 
-        <small
-          id="emailError"
-          style="color: var(--error); display:none;">
-        </small>
-      </div>
+                    <label for="department">
+                        Department Name
+                    </label>
 
+                    <select
+                        id="department"
+                        name="department"
+                        required
+                    >
 
-      <div class="form-group">
-        <label for="password">Password</label>
+                        <option value="">
+                            Select Department
+                        </option>
 
-        <input
-          type="password"
-          id="password"
-          placeholder="Create a password"
-          required
-        >
+                        <option value="CSC">
+                            CSC
+                        </option>
 
-        <small
-          id="passwordError"
-          style="color: var(--error); display:none;">
-        </small>
-      </div>
+                        <option value="Maths">
+                            Maths
+                        </option>
 
+                        <option value="Accounts">
+                            Accounts
+                        </option>
 
-      <div class="form-group">
-        <label for="confirmPassword">
-          Confirm Password
-        </label>
+                        <option value="ECE">
+                            ECE
+                        </option>
 
-        <input
-          type="password"
-          id="confirmPassword"
-          placeholder="Re-enter password"
-          required
-        >
+                    </select>
 
-        <small
-          id="confirmPasswordError"
-          style="color: var(--error); display:none;">
-        </small>
-      </div>
+                </div>
 
 
-      <button
-        type="submit"
-        class="btn btn-primary">
-        Register
-      </button>
+                <!-- Staff ID -->
+
+                <div class="form-group">
+
+                    <label for="staffId">
+                        Staff ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="staffId"
+                        name="staffId"
+                        placeholder="Enter Staff ID"
+                        required
+                    >
+
+                </div>
 
 
-      <div id="formMessage"></div>
+                <!-- Phone Number -->
 
-    </form>
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter 10 digit phone number"
+                        maxlength="10"
+                        inputmode="numeric"
+                        required
+                    >
+
+                    <small
+                        id="phoneError"
+                        style="color:red;"
+                    ></small>
+
+                </div>
 
 
-    <p
-      class="mt-1"
-      style="font-size:0.85rem; color:var(--text-muted);">
+                <!-- Staff Email -->
 
-      Already have an account?
+                <div class="form-group">
 
-      <a href="login.html">
-        Login here
-      </a>
+                    <label for="email">
+                        Staff Email
+                    </label>
 
-    </p>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="123456789@sastra.ac.in"
+                        required
+                    >
 
-  </div>
+                    <small
+                        id="emailError"
+                        style="color:red;"
+                    ></small>
 
-</div>
+                </div>
 
 
-<script src="../js/recruiter-auth.js"></script>
+                <!-- Create Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Create Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter exactly 6 digit password"
+                        maxlength="6"
+                        inputmode="numeric"
+                        required
+                    >
+
+                    <small
+                        id="passwordError"
+                        style="color:red;"
+                    ></small>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Re-enter password"
+                        maxlength="6"
+                        inputmode="numeric"
+                        required
+                    >
+
+                    <small
+                        id="confirmPasswordError"
+                        style="color:red;"
+                    ></small>
+
+                </div>
+
+
+                <!-- Register Button -->
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                    style="
+                        width:100%;
+                        padding:14px;
+                        background:#151b4f;
+                        color:white;
+                        border:none;
+                        border-radius:7px;
+                        font-size:16px;
+                        font-weight:bold;
+                        cursor:pointer;
+                        margin-top:10px;
+                    "
+                >
+                    Register
+                </button>
+
+
+                <!-- Login Link -->
+
+                <p style="text-align:center; margin-top:15px;">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const phone =
+            document.getElementById("phone");
+
+        const email =
+            document.getElementById("email");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+
+        /* ================= PHONE VALIDATION ================= */
+
+        phone.addEventListener("input", function () {
+
+            // Allow numbers only
+            this.value = this.value.replace(/[^0-9]/g, "");
+
+            const phoneError =
+                document.getElementById("phoneError");
+
+            if (this.value.length > 0 &&
+                this.value.length !== 10) {
+
+                phoneError.textContent =
+                    "Phone number must be exactly 10 digits.";
+
+            } else {
+
+                phoneError.textContent = "";
+
+            }
+
+        });
+
+
+        /* ================= EMAIL VALIDATION ================= */
+
+        email.addEventListener("input", function () {
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const emailPattern =
+                /^[0-9]+@sastra\.ac\.in$/;
+
+            if (
+                this.value.length > 0 &&
+                !emailPattern.test(this.value)
+            ) {
+
+                emailError.textContent =
+                    "Email must be in the format 123456789@sastra.ac.in";
+
+            } else {
+
+                emailError.textContent = "";
+
+            }
+
+        });
+
+
+        /* ================= PASSWORD VALIDATION ================= */
+
+        password.addEventListener("input", function () {
+
+            // Allow numbers only
+            this.value =
+                this.value.replace(/[^0-9]/g, "");
+
+            const passwordError =
+                document.getElementById("passwordError");
+
+            if (
+                this.value.length > 0 &&
+                this.value.length !== 6
+            ) {
+
+                passwordError.textContent =
+                    "Password must be exactly 6 digits.";
+
+            } else {
+
+                passwordError.textContent = "";
+
+            }
+
+        });
+
+
+        /* ================= CONFIRM PASSWORD ================= */
+
+        confirmPassword.addEventListener("input", function () {
+
+            const confirmPasswordError =
+                document.getElementById("confirmPasswordError");
+
+            if (
+                this.value.length > 0 &&
+                this.value !== password.value
+            ) {
+
+                confirmPasswordError.textContent =
+                    "Passwords do not match.";
+
+            } else {
+
+                confirmPasswordError.textContent = "";
+
+            }
+
+        });
+
+
+        /* ================= REGISTER ================= */
+
+        registerForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            // Get values
+
+            const staffName =
+                document.getElementById("staffName").value.trim();
+
+            const department =
+                document.getElementById("department").value;
+
+            const staffId =
+                document.getElementById("staffId").value.trim();
+
+            const phoneNumber =
+                phone.value.trim();
+
+            const emailId =
+                email.value.trim();
+
+            const passwordValue =
+                password.value;
+
+            const confirmPasswordValue =
+                confirmPassword.value;
+
+
+            /* ================= VALIDATIONS ================= */
+
+
+            // Department validation
+
+            if (department === "") {
+
+                alert("Please select a department.");
+                return;
+
+            }
+
+
+            // Phone validation
+
+            if (!/^[0-9]{10}$/.test(phoneNumber)) {
+
+                alert("Phone number must be exactly 10 digits.");
+                return;
+
+            }
+
+
+            // Email validation
+
+            if (!/^[0-9]+@sastra\.ac\.in$/.test(emailId)) {
+
+                alert(
+                    "Please enter a valid SASTRA email.\nExample: 123456789@sastra.ac.in"
+                );
+
+                return;
+
+            }
+
+
+            // Password validation
+
+            if (!/^[0-9]{6}$/.test(passwordValue)) {
+
+                alert("Password must be exactly 6 digits.");
+                return;
+
+            }
+
+
+            // Confirm password validation
+
+            if (passwordValue !== confirmPasswordValue) {
+
+                alert("Passwords do not match.");
+                return;
+
+            }
+
+
+            /* ================= SAVE DATA ================= */
+
+            const recruiterData = {
+
+                staffName: staffName,
+
+                department: department,
+
+                staffId: staffId,
+
+                phone: phoneNumber,
+
+                email: emailId,
+
+                password: passwordValue
+
+            };
+
+
+            /*
+             * Save recruiter details in localStorage
+             */
+
+            localStorage.setItem(
+                "recruiterData",
+                JSON.stringify(recruiterData)
+            );
+
+
+            /*
+             * Save email and password separately
+             * for login verification
+             */
+
+            localStorage.setItem(
+                "recruiterEmail",
+                emailId
+            );
+
+            localStorage.setItem(
+                "recruiterPassword",
+                passwordValue
+            );
+
+
+            /* ================= SUCCESS ================= */
+
+            alert("Registration successful!");
+
+            /*
+             * Go to Login page
+             */
+
+            window.location.href = "login.html";
+
+        });
+
+    </script>
 
 </body>
+
 </html>

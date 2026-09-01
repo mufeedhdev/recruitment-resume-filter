@@ -1,17 +1,103 @@
-// Get logged-in recruiter name
-const recruiterName = localStorage.getItem("recruiterName");
+document.addEventListener("DOMContentLoaded", function () {
 
-// Display recruiter name
-const welcomeText = document.getElementById("welcomeText");
 
-if (recruiterName) {
-    welcomeText.textContent = "Welcome back, " + recruiterName;
-} else {
-    welcomeText.textContent = "Welcome back, Recruiter";
-}
+    /* =================================
+       CHECK LOGIN
+    ================================= */
 
-// Logout function
-function logout() {
-    localStorage.removeItem("recruiterName");
-    window.location.href = "login.html";
-}
+    const loggedIn =
+        localStorage.getItem("loggedIn");
+
+
+    if (loggedIn !== "true") {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    /* =================================
+       GET RECRUITER EMAIL
+    ================================= */
+
+    const email =
+        localStorage.getItem("recruiterEmail");
+
+
+    const recruiterEmail =
+        document.getElementById(
+            "recruiterEmail"
+        );
+
+
+    if (recruiterEmail && email) {
+
+        recruiterEmail.textContent =
+            email;
+
+    }
+
+
+    /* =================================
+       LOGOUT FUNCTION
+    ================================= */
+
+    function logout() {
+
+        localStorage.removeItem(
+            "loggedIn"
+        );
+
+        localStorage.removeItem(
+            "loginEmail"
+        );
+
+        window.location.href =
+            "login.html";
+
+    }
+
+
+    /* =================================
+       TOP LOGOUT
+    ================================= */
+
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+    /* =================================
+       SIDEBAR LOGOUT
+    ================================= */
+
+    const sidebarLogout =
+        document.getElementById(
+            "sidebarLogout"
+        );
+
+
+    if (sidebarLogout) {
+
+        sidebarLogout.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+});

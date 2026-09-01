@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     console.log(
-        "Student Profile Page Loaded"
+        "Shortlisted Students Page Loaded"
     );
 
 });

@@ -3,21 +3,20 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Recruiter Dashboard</title>
+    <title>Recruiter Dashboard</title>
 
-<link
-  rel="stylesheet"
-  href="../../shared/css/common.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet"
+          href="../css/common.css">
 
-<link
-  rel="stylesheet"
-  href="../css/dashboard.css">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet"
+          href="../css/dashboard.css">
 
 </head>
 
@@ -25,315 +24,491 @@
 <body>
 
 
-<nav class="navbar">
+    <!-- ================= NAVBAR ================= -->
 
-  <span class="brand">
-    Student Records
-  </span>
+    <nav class="top-navbar">
 
+        <div class="logo">
+            Recruitment Portal
+        </div>
 
-  <div>
+        <div class="recruiter-info">
 
-    <a href="../../index.html">
-      Home
-    </a>
+            <span id="recruiterEmail">
+                Recruiter
+            </span>
 
-    <a href="dashboard.html">
-      Dashboard
-    </a>
+            <button id="logoutBtn">
+                Logout
+            </button>
 
-    <a href="profile.html">
-      Profile
-    </a>
+        </div>
 
-    <a href="login.html">
-      Logout
-    </a>
-
-  </div>
-
-</nav>
+    </nav>
 
 
 
-<div class="container">
+    <!-- ================= MAIN LAYOUT ================= -->
+
+    <div class="dashboard-layout">
 
 
-  <!-- Welcome Section -->
+        <!-- ================= SIDEBAR ================= -->
 
-  <section class="dashboard-header">
+        <aside class="sidebar">
 
-    <span class="eyebrow">
-      Recruiter Portal
-    </span>
-
-    <h1>
-      Welcome back, Recruiter
-    </h1>
-
-    <p>
-      Find skilled students and manage recruitment activities.
-    </p>
-
-  </section>
+            <h2>Recruiter Panel</h2>
 
 
+            <a href="dashboard.html"
+               class="sidebar-link active">
 
-  <!-- Recruitment Summary -->
+                🏠 Dashboard
 
-  <section class="card profile-completion">
+            </a>
 
-    <div>
 
-      <span class="eyebrow">
-        Recruitment Overview
-      </span>
+            <a href="search.html"
+               class="sidebar-link">
 
-      <h2>
-        Student Recruitment
-      </h2>
+                🔍 Search Students
 
-      <p>
-        Search students based on skills, academic performance,
-        achievements and other profile details.
-      </p>
+            </a>
+
+
+            <a href="shortlisted.html"
+               class="sidebar-link">
+
+                ⭐ Shortlisted Students
+
+            </a>
+
+
+            <a href="student-profile.html"
+               class="sidebar-link">
+
+                👨‍🎓 Student Profile
+
+            </a>
+
+
+            <a href="#notifications"
+               class="sidebar-link">
+
+                🔔 Notifications
+
+            </a>
+
+
+            <a href="#profile"
+               class="sidebar-link">
+
+                👤 Recruiter Profile
+
+            </a>
+
+
+            <div class="sidebar-bottom">
+
+                <button id="sidebarLogout">
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- Welcome -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <h1>
+                        Welcome, Recruiter! 👋
+                    </h1>
+
+                    <p>
+                        Manage student recruitment,
+                        search candidates and track
+                        shortlisted students.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= STAT CARDS ================= -->
+
+            <section class="stats-container">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+
+                        <h3>Total Students</h3>
+
+                        <p id="totalStudents">
+                            120
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📄
+                    </div>
+
+                    <div>
+
+                        <h3>Applications</h3>
+
+                        <p id="applications">
+                            45
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <h3>Shortlisted</h3>
+
+                        <p id="shortlisted">
+                            12
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <h3>Selected</h3>
+
+                        <p id="selected">
+                            5
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= QUICK ACTIONS ================= -->
+
+            <section class="section">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+
+                <div class="quick-actions">
+
+
+                    <a href="search.html"
+                       class="action-card">
+
+                        <span>🔍</span>
+
+                        <div>
+
+                            <h3>
+                                Search Students
+                            </h3>
+
+                            <p>
+                                Find students based on
+                                department and skills.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="shortlisted.html"
+                       class="action-card">
+
+                        <span>⭐</span>
+
+                        <div>
+
+                            <h3>
+                                View Shortlisted
+                            </h3>
+
+                            <p>
+                                View students selected
+                                for recruitment.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a href="student-profile.html"
+                       class="action-card">
+
+                        <span>👨‍🎓</span>
+
+                        <div>
+
+                            <h3>
+                                Student Profile
+                            </h3>
+
+                            <p>
+                                View complete student
+                                information.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RECRUITMENT OVERVIEW ================= -->
+
+            <section class="section">
+
+
+                <div class="section-header">
+
+                    <h2>
+                        Recruitment Overview
+                    </h2>
+
+                    <span>
+                        Current Status
+                    </span>
+
+                </div>
+
+
+                <div class="overview-card">
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Student Applications
+                        </span>
+
+                        <strong>
+                            45
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress applications-progress">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Shortlisted Students
+                        </span>
+
+                        <strong>
+                            12
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress shortlisted-progress">
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="overview-row">
+
+                        <span>
+                            Selected Students
+                        </span>
+
+                        <strong>
+                            5
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress selected-progress">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RECENT ACTIVITY ================= -->
+
+            <section class="section">
+
+                <h2>
+                    Recent Activity
+                </h2>
+
+
+                <div class="activity-card">
+
+
+                    <div class="activity-item">
+
+                        <span class="activity-icon">
+                            🔍
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Student search
+                            </strong>
+
+                            <p>
+                                Search Students feature
+                                is ready to use.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <span class="activity-icon">
+                            ⭐
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Shortlist Management
+                            </strong>
+
+                            <p>
+                                View and manage shortlisted
+                                students.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <span class="activity-icon">
+                            🔔
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Recruitment Notification
+                            </strong>
+
+                            <p>
+                                Notifications can be
+                                managed from the portal.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
 
     </div>
 
 
-    <div class="completion-score">
 
-      <strong>
-        25
-      </strong>
+    <!-- Dashboard JavaScript -->
 
-      <span>
-        Students Shortlisted
-      </span>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- Dashboard Cards -->
-
-  <section class="dashboard-grid">
-
-
-    <!-- Recruiter Profile -->
-
-    <a
-      href="profile.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        👤
-      </span>
-
-      <h3>
-        Recruiter Profile
-      </h3>
-
-      <p>
-        Manage your recruiter and department information.
-      </p>
-
-      <span class="dashboard-link">
-        View Profile →
-      </span>
-
-    </a>
-
-
-
-    <!-- Student Search -->
-
-    <a
-      href="students.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        🔎
-      </span>
-
-      <h3>
-        Student Search
-      </h3>
-
-      <p>
-        Search and view student profiles based on requirements.
-      </p>
-
-      <span class="dashboard-link">
-        Search Students →
-      </span>
-
-    </a>
-
-
-
-    <!-- Skill Based Recruitment -->
-
-    <a
-      href="skill-search.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        💻
-      </span>
-
-      <h3>
-        Skill-Based Recruitment
-      </h3>
-
-      <p>
-        Find students based on technical and professional skills.
-      </p>
-
-      <span class="dashboard-link">
-        Find Students →
-      </span>
-
-    </a>
-
-
-
-    <!-- Resume Analyzer -->
-
-    <a
-      href="resume-analyzer.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        📄
-      </span>
-
-      <h3>
-        Resume Analyzer
-      </h3>
-
-      <p>
-        Analyze student resumes and identify suitable candidates.
-      </p>
-
-      <span class="dashboard-link">
-        Analyze Resumes →
-      </span>
-
-    </a>
-
-
-
-    <!-- Shortlisted Students -->
-
-    <a
-      href="shortlisted.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        ⭐
-      </span>
-
-      <h3>
-        Shortlisted Students
-      </h3>
-
-      <p>
-        View students selected for the recruitment process.
-      </p>
-
-      <span class="dashboard-link">
-        View Shortlist →
-      </span>
-
-    </a>
-
-
-
-    <!-- Notifications -->
-
-    <a
-      href="notifications.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        🔔
-      </span>
-
-      <h3>
-        Notifications
-      </h3>
-
-      <p>
-        Send and manage recruitment notifications to students.
-      </p>
-
-      <span class="dashboard-link">
-        View Notifications →
-      </span>
-
-    </a>
-
-
-
-    <!-- Recruitment Reports -->
-
-    <a
-      href="reports.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        📊
-      </span>
-
-      <h3>
-        Recruitment Reports
-      </h3>
-
-      <p>
-        View recruitment statistics and candidate reports.
-      </p>
-
-      <span class="dashboard-link">
-        View Reports →
-      </span>
-
-    </a>
-
-
-
-    <!-- Requirements -->
-
-    <a
-      href="requirements.html"
-      class="dashboard-card">
-
-      <span class="dashboard-icon">
-        📋
-      </span>
-
-      <h3>
-        Recruitment Requirements
-      </h3>
-
-      <p>
-        Create requirements based on department, skills and CGPA.
-      </p>
-
-      <span class="dashboard-link">
-        Manage Requirements →
-      </span>
-
-    </a>
-
-
-  </section>
-
-</div>
+    <script src="../js/dashboard.js"></script>
 
 
 </body>
 
-</html> 
+</html>
