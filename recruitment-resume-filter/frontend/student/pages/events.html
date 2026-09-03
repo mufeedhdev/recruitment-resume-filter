@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <span class="brand">Recruitment Resume Filter</span>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="resume.html">Resume</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="events.html">Events</a>
+            <a href="communication.html">Communication</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Events -->
+    <div class="container">
+
+        <div class="card">
+
+            <span class="eyebrow">Student Portal</span>
+
+            <h2>Events & Activities</h2>
+
+            <p class="login-description">
+                Add events, competitions, seminars and other activities you participated in.
+            </p>
+
+
+            <!-- Event List -->
+            <div id="eventList"></div>
+
+
+            <!-- Add Event -->
+            <button
+                type="button"
+                id="addEventBtn"
+                class="btn btn-secondary"
+                style="margin-top: 1rem;">
+                + Add Event
+            </button>
+
+
+            <!-- Save -->
+            <div style="margin-top: 1.5rem;">
+
+                <button
+                    type="button"
+                    id="saveEventsBtn"
+                    class="btn btn-primary">
+                    Save Events
+                </button>
+
+            </div>
+
+
+            <!-- Message -->
+            <div id="eventMessage"></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // ==========================================
+        // EVENTS
+        // ==========================================
+
+        const eventList =
+            document.getElementById("eventList");
+
+        const addEventBtn =
+            document.getElementById("addEventBtn");
+
+        const saveEventsBtn =
+            document.getElementById("saveEventsBtn");
+
+        const eventMessage =
+            document.getElementById("eventMessage");
+
+
+        // ==========================================
+        // ADD EVENT
+        // ==========================================
+
+        function addEvent() {
+
+            const eventCard =
+                document.createElement("div");
+
+            eventCard.className = "card";
+
+            eventCard.style.marginTop = "1.5rem";
+
+
+            eventCard.innerHTML = `
+
+                <h3>Event</h3>
+
+
+                <!-- Event Name -->
+
+                <div class="form-group">
+
+                    <label>
+                        Event Name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="eventName"
+                        placeholder="e.g. Inter College Hackathon"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Event Type -->
+
+                <div class="form-group">
+
+                    <label>
+                        Event Type
+                    </label>
+
+                    <select
+                        class="eventType"
+                        required>
+
+                        <option value="">
+                            Select event type
+                        </option>
+
+                        <option value="Hackathon">
+                            Hackathon
+                        </option>
+
+                        <option value="Technical Competition">
+                            Technical Competition
+                        </option>
+
+                        <option value="Cultural">
+                            Cultural
+                        </option>
+
+                        <option value="Sports">
+                            Sports
+                        </option>
+
+                        <option value="Seminar">
+                            Seminar
+                        </option>
+
+                        <option value="Workshop">
+                            Workshop
+                        </option>
+
+                        <option value="Conference">
+                            Conference
+                        </option>
+
+                        <option value="Webinar">
+                            Webinar
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Organizer -->
+
+                <div class="form-group">
+
+                    <label>
+                        Organizer / Institution
+                    </label>
+
+                    <input
+                        type="text"
+                        class="eventOrganizer"
+                        placeholder="e.g. SASTRA University"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="form-group">
+
+                    <label>
+                        Event Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="eventDate"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Participation -->
+
+                <div class="form-group">
+
+                    <label>
+                        Participation / Role
+                    </label>
+
+                    <select
+                        class="eventRole"
+                        required>
+
+                        <option value="">
+                            Select your role
+                        </option>
+
+                        <option value="Participant">
+                            Participant
+                        </option>
+
+                        <option value="Team Member">
+                            Team Member
+                        </option>
+
+                        <option value="Organizer">
+                            Organizer
+                        </option>
+
+                        <option value="Volunteer">
+                            Volunteer
+                        </option>
+
+                        <option value="Speaker">
+                            Speaker
+                        </option>
+
+                        <option value="Winner">
+                            Winner
+                        </option>
+
+                        <option value="Runner Up">
+                            Runner Up
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        class="eventDescription"
+                        rows="4"
+                        placeholder="Describe your participation or experience..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Proof -->
+
+                <div class="form-group">
+
+                    <label>
+                        Event Certificate / Proof
+                    </label>
+
+                    <input
+                        type="file"
+                        class="eventFile"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    >
+
+                    <small
+                        style="
+                            display: block;
+                            margin-top: 0.4rem;
+                            color: var(--text-muted);
+                        ">
+                        PDF, JPG, JPEG or PNG. Maximum 5 MB.
+                    </small>
+
+                </div>
+
+
+                <!-- Remove -->
+
+                <button
+                    type="button"
+                    class="btn btn-secondary removeEventBtn">
+                    Remove Event
+                </button>
+
+            `;
+
+
+            eventList.appendChild(eventCard);
+
+
+            // Remove event
+
+            const removeButton =
+                eventCard.querySelector(
+                    ".removeEventBtn"
+                );
+
+
+            removeButton.addEventListener(
+                "click",
+                () => {
+
+                    eventCard.remove();
+
+                }
+            );
+
+
+            // File validation
+
+            const eventFile =
+                eventCard.querySelector(
+                    ".eventFile"
+                );
+
+
+            eventFile.addEventListener(
+                "change",
+                function () {
+
+                    const file =
+                        this.files[0];
+
+
+                    if (!file) {
+                        return;
+                    }
+
+
+                    const allowedTypes = [
+                        "application/pdf",
+                        "image/jpeg",
+                        "image/png"
+                    ];
+
+
+                    if (
+                        !allowedTypes.includes(file.type)
+                    ) {
+
+                        showMessage(
+                            "Proof must be PDF, JPG or PNG.",
+                            "error"
+                        );
+
+                        this.value = "";
+
+                        return;
+
+                    }
+
+
+                    // Maximum 5 MB
+
+                    if (
+                        file.size >
+                        5 * 1024 * 1024
+                    ) {
+
+                        showMessage(
+                            "Proof file must be smaller than 5 MB.",
+                            "error"
+                        );
+
+                        this.value = "";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        // ==========================================
+        // ADD FIRST EVENT
+        // ==========================================
+
+        addEvent();
+
+
+        // ==========================================
+        // ADD MORE EVENTS
+        // ==========================================
+
+        addEventBtn.addEventListener(
+            "click",
+            addEvent
+        );
+
+
+        // ==========================================
+        // SAVE EVENTS
+        // ==========================================
+
+        saveEventsBtn.addEventListener(
+            "click",
+            function () {
+
+                const events =
+                    document.querySelectorAll(
+                        "#eventList > .card"
+                    );
+
+
+                if (events.length === 0) {
+
+                    showMessage(
+                        "Please add at least one event.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                const eventData = [];
+
+
+                for (
+                    let i = 0;
+                    i < events.length;
+                    i++
+                ) {
+
+                    const card =
+                        events[i];
+
+
+                    const name =
+                        card.querySelector(
+                            ".eventName"
+                        ).value.trim();
+
+
+                    const type =
+                        card.querySelector(
+                            ".eventType"
+                        ).value;
+
+
+                    const organizer =
+                        card.querySelector(
+                            ".eventOrganizer"
+                        ).value.trim();
+
+
+                    const date =
+                        card.querySelector(
+                            ".eventDate"
+                        ).value;
+
+
+                    const role =
+                        card.querySelector(
+                            ".eventRole"
+                        ).value;
+
+
+                    const description =
+                        card.querySelector(
+                            ".eventDescription"
+                        ).value.trim();
+
+
+                    const file =
+                        card.querySelector(
+                            ".eventFile"
+                        ).files[0];
+
+
+                    // Required fields
+
+                    if (
+                        !name ||
+                        !type ||
+                        !organizer ||
+                        !date ||
+                        !role
+                    ) {
+
+                        showMessage(
+                            "Please fill in all required event fields.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    eventData.push({
+
+                        eventName:
+                            name,
+
+                        eventType:
+                            type,
+
+                        organizer:
+                            organizer,
+
+                        date:
+                            date,
+
+                        role:
+                            role,
+
+                        description:
+                            description,
+
+                        proofFile:
+                            file
+                                ? file.name
+                                : null
+
+                    });
+
+                }
+
+
+                // Temporary frontend save
+
+                console.log(
+                    "Event data:",
+                    eventData
+                );
+
+
+                showMessage(
+                    "Events saved successfully.",
+                    "success"
+                );
+
+            }
+        );
+
+
+        // ==========================================
+        // MESSAGE
+        // ==========================================
+
+        function showMessage(text, type) {
+
+            eventMessage.textContent =
+                text;
+
+            eventMessage.className =
+                "message " + type;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

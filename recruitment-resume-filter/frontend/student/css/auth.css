@@ -1,0 +1,129 @@
+/* =========================================
+   AUTHENTICATION PAGES
+   Login + Register
+   ========================================= */
+
+
+/* ---- Authentication Card ---- */
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  margin: 2rem auto;
+}
+
+
+/* ---- Authentication Heading ---- */
+
+.auth-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+
+/* ---- Form ---- */
+
+.auth-card form {
+  width: 100%;
+}
+
+
+/* ---- Form Inputs ---- */
+
+.auth-card input,
+.auth-card select {
+  box-sizing: border-box;
+}
+
+
+/* ---- Validation Error Text ---- */
+
+.auth-card small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+
+/* ---- Authentication Button ---- */
+
+.auth-card .btn {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+
+/* ---- Login/Register Links ---- */
+
+.auth-card a {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.auth-card a:hover {
+  color: var(--gold);
+}
+
+
+/* ---- Mobile ---- */
+
+@media (max-width: 600px) {
+  .auth-card {
+    margin: 1rem auto;
+    padding: 1.25rem;
+  }
+}
+/* ---- Login Page ---- */
+
+.login-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.otp-resend {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.resend-btn:hover {
+    color: var(--gold);
+}
+/* Communication Skills Checkboxes */
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.checkbox-item span {
+    line-height: 18px;
+}

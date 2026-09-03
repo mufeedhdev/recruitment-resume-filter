@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search Students</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/search.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <span class="brand">
+            Recruitment Portal
+        </span>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="search.html">
+                Search
+            </a>
+
+            <a href="shortlisted.html">
+                Shortlisted
+            </a>
+
+            <a href="student-profile.html">
+                Student Profile
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="page-container">
+
+        <div class="card">
+
+            <h1>Search Students</h1>
+
+            <p>
+                Find students based on department
+                and skills.
+            </p>
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by student name or skill">
+
+
+            <button
+                class="btn btn-primary"
+                id="searchBtn">
+
+                Search
+
+            </button>
+
+
+            <div id="searchResult"></div>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/search.js"></script>
+
+</body>
+
+</html>

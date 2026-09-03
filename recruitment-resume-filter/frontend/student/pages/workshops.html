@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workshops</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <span class="brand">
+            Recruitment Resume Filter
+        </span>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="resume.html">Resume</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="events.html">Events</a>
+            <a href="communication.html">Communication</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <div class="card">
+
+            <span class="eyebrow">
+                Student Portal
+            </span>
+
+            <h2>
+                Workshops & Training
+            </h2>
+
+            <p class="login-description">
+                Add workshops, training programs and technical sessions you have attended.
+            </p>
+
+
+            <!-- Workshop List -->
+            <div id="workshopList"></div>
+
+
+            <!-- Add Workshop -->
+            <button
+                type="button"
+                id="addWorkshopBtn"
+                class="btn btn-secondary"
+                style="margin-top: 1rem;">
+                + Add Workshop
+            </button>
+
+
+            <!-- Save -->
+            <div style="margin-top: 1.5rem;">
+
+                <button
+                    type="button"
+                    id="saveWorkshopsBtn"
+                    class="btn btn-primary">
+                    Save Workshops
+                </button>
+
+            </div>
+
+
+            <!-- Message -->
+            <div id="workshopMessage"></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // ==========================================
+        // ELEMENTS
+        // ==========================================
+
+        const workshopList =
+            document.getElementById("workshopList");
+
+        const addWorkshopBtn =
+            document.getElementById("addWorkshopBtn");
+
+        const saveWorkshopsBtn =
+            document.getElementById("saveWorkshopsBtn");
+
+        const workshopMessage =
+            document.getElementById("workshopMessage");
+
+
+        // ==========================================
+        // ADD WORKSHOP
+        // ==========================================
+
+        function addWorkshop() {
+
+            const workshopCard =
+                document.createElement("div");
+
+            workshopCard.className = "card";
+
+            workshopCard.style.marginTop = "1.5rem";
+
+
+            workshopCard.innerHTML = `
+
+                <h3>Workshop</h3>
+
+
+                <!-- Workshop Name -->
+
+                <div class="form-group">
+
+                    <label>
+                        Workshop Name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="workshopName"
+                        placeholder="e.g. Web Development Workshop"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Organizer -->
+
+                <div class="form-group">
+
+                    <label>
+                        Organizer / Institution
+                    </label>
+
+                    <input
+                        type="text"
+                        class="workshopOrganizer"
+                        placeholder="e.g. SASTRA University"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Topic -->
+
+                <div class="form-group">
+
+                    <label>
+                        Topic / Technology
+                    </label>
+
+                    <input
+                        type="text"
+                        class="workshopTopic"
+                        placeholder="e.g. React.js, Python, AI"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="form-group">
+
+                    <label>
+                        Workshop Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="workshopDate"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Duration -->
+
+                <div class="form-group">
+
+                    <label>
+                        Duration
+                    </label>
+
+                    <input
+                        type="text"
+                        class="workshopDuration"
+                        placeholder="e.g. 2 days / 6 hours"
+                    >
+
+                </div>
+
+
+                <!-- Mode -->
+
+                <div class="form-group">
+
+                    <label>
+                        Mode
+                    </label>
+
+                    <select class="workshopMode">
+
+                        <option value="">
+                            Select mode
+                        </option>
+
+                        <option value="Offline">
+                            Offline
+                        </option>
+
+                        <option value="Online">
+                            Online
+                        </option>
+
+                        <option value="Hybrid">
+                            Hybrid
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Skills Learned -->
+
+                <div class="form-group">
+
+                    <label>
+                        Skills / Technologies Learned
+                    </label>
+
+                    <input
+                        type="text"
+                        class="workshopSkills"
+                        placeholder="e.g. HTML, CSS, JavaScript"
+                    >
+
+                    <small>
+                        Separate multiple skills with commas.
+                    </small>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        class="workshopDescription"
+                        rows="4"
+                        placeholder="Describe what you learned or worked on..."></textarea>
+
+                </div>
+
+
+                <!-- Certificate -->
+
+                <div class="form-group">
+
+                    <label>
+                        Workshop Certificate / Proof
+                    </label>
+
+                    <input
+                        type="file"
+                        class="workshopFile"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    >
+
+                    <small>
+                        PDF, JPG, JPEG or PNG. Maximum 5 MB.
+                    </small>
+
+                </div>
+
+
+                <!-- Remove -->
+
+                <button
+                    type="button"
+                    class="btn btn-secondary removeWorkshopBtn">
+                    Remove Workshop
+                </button>
+
+            `;
+
+
+            workshopList.appendChild(workshopCard);
+
+
+            // ======================================
+            // REMOVE WORKSHOP
+            // ======================================
+
+            workshopCard
+                .querySelector(".removeWorkshopBtn")
+                .addEventListener(
+                    "click",
+                    () => {
+
+                        workshopCard.remove();
+
+                    }
+                );
+
+
+            // ======================================
+            // FILE VALIDATION
+            // ======================================
+
+            const fileInput =
+                workshopCard.querySelector(
+                    ".workshopFile"
+                );
+
+
+            fileInput.addEventListener(
+                "change",
+                function () {
+
+                    const file =
+                        this.files[0];
+
+
+                    if (!file) {
+                        return;
+                    }
+
+
+                    const allowedTypes = [
+
+                        "application/pdf",
+
+                        "image/jpeg",
+
+                        "image/png"
+
+                    ];
+
+
+                    if (
+                        !allowedTypes.includes(file.type)
+                    ) {
+
+                        showMessage(
+                            "Certificate must be PDF, JPG or PNG.",
+                            "error"
+                        );
+
+                        this.value = "";
+
+                        return;
+
+                    }
+
+
+                    // Maximum 5 MB
+
+                    if (
+                        file.size >
+                        5 * 1024 * 1024
+                    ) {
+
+                        showMessage(
+                            "Certificate must be smaller than 5 MB.",
+                            "error"
+                        );
+
+                        this.value = "";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        // ==========================================
+        // ADD FIRST WORKSHOP
+        // ==========================================
+
+        addWorkshop();
+
+
+        // ==========================================
+        // ADD MORE WORKSHOPS
+        // ==========================================
+
+        addWorkshopBtn.addEventListener(
+            "click",
+            addWorkshop
+        );
+
+
+        // ==========================================
+        // SAVE WORKSHOPS
+        // ==========================================
+
+        saveWorkshopsBtn.addEventListener(
+            "click",
+            function () {
+
+                const workshops =
+                    document.querySelectorAll(
+                        "#workshopList > .card"
+                    );
+
+
+                if (workshops.length === 0) {
+
+                    showMessage(
+                        "Please add at least one workshop.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                const workshopData = [];
+
+
+                for (
+                    let i = 0;
+                    i < workshops.length;
+                    i++
+                ) {
+
+                    const card =
+                        workshops[i];
+
+
+                    const name =
+                        card.querySelector(
+                            ".workshopName"
+                        )
+                        .value
+                        .trim();
+
+
+                    const organizer =
+                        card.querySelector(
+                            ".workshopOrganizer"
+                        )
+                        .value
+                        .trim();
+
+
+                    const topic =
+                        card.querySelector(
+                            ".workshopTopic"
+                        )
+                        .value
+                        .trim();
+
+
+                    const date =
+                        card.querySelector(
+                            ".workshopDate"
+                        )
+                        .value;
+
+
+                    const duration =
+                        card.querySelector(
+                            ".workshopDuration"
+                        )
+                        .value
+                        .trim();
+
+
+                    const mode =
+                        card.querySelector(
+                            ".workshopMode"
+                        )
+                        .value;
+
+
+                    const skills =
+                        card.querySelector(
+                            ".workshopSkills"
+                        )
+                        .value
+                        .trim();
+
+
+                    const description =
+                        card.querySelector(
+                            ".workshopDescription"
+                        )
+                        .value
+                        .trim();
+
+
+                    const file =
+                        card.querySelector(
+                            ".workshopFile"
+                        )
+                        .files[0];
+
+
+                    // Required fields
+
+                    if (
+                        !name ||
+                        !organizer ||
+                        !topic ||
+                        !date
+                    ) {
+
+                        showMessage(
+                            "Please fill in all required workshop fields.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    workshopData.push({
+
+                        workshopName:
+                            name,
+
+                        organizer:
+                            organizer,
+
+                        topic:
+                            topic,
+
+                        date:
+                            date,
+
+                        duration:
+                            duration,
+
+                        mode:
+                            mode,
+
+                        skillsLearned:
+                            skills,
+
+                        description:
+                            description,
+
+                        certificateFile:
+                            file
+                                ? file.name
+                                : null
+
+                    });
+
+                }
+
+
+                // ==================================
+                // TEMPORARY FRONTEND SAVE
+                // ==================================
+
+                console.log(
+                    "Workshop data:",
+                    workshopData
+                );
+
+
+                showMessage(
+                    "Workshops saved successfully.",
+                    "success"
+                );
+
+            }
+        );
+
+
+        // ==========================================
+        // MESSAGE
+        // ==========================================
+
+        function showMessage(text, type) {
+
+            workshopMessage.textContent =
+                text;
+
+            workshopMessage.className =
+                "message " + type;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

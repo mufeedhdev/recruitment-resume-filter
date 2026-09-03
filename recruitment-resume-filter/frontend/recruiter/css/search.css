@@ -1,0 +1,33 @@
+.page-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.page-container h1 {
+    color: #171c4a;
+    margin-bottom: 10px;
+}
+
+.page-container input {
+    width: 100%;
+    padding: 14px;
+
+    margin: 20px 0;
+
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+#searchResult {
+    margin-top: 25px;
+}
+
+.student-result {
+    padding: 15px;
+    margin-top: 10px;
+
+    background: #f5f6fa;
+
+    border-radius: 8px;
+}

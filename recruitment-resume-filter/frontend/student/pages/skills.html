@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skills</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <span class="brand">Recruitment Resume Filter</span>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Skills -->
+    <div class="container">
+
+        <div class="auth-card card">
+
+            <span class="eyebrow">Student Portal</span>
+
+            <h2>Skills</h2>
+
+            <p class="login-description">
+                Add your technical and professional skills to help recruiters find you.
+            </p>
+
+
+            <form id="skillsForm">
+
+                <!-- Programming Languages -->
+                <div class="form-group">
+
+                    <label for="programmingLanguages">
+                        Programming Languages
+                    </label>
+
+                    <input
+                        type="text"
+                        id="programmingLanguages"
+                        placeholder="e.g. Java, Python, C, JavaScript"
+                    >
+
+                    <small>
+                        Separate multiple skills with commas.
+                    </small>
+
+                </div>
+
+
+                <!-- Web Technologies -->
+                <div class="form-group">
+
+                    <label for="webTechnologies">
+                        Web Technologies
+                    </label>
+
+                    <input
+                        type="text"
+                        id="webTechnologies"
+                        placeholder="e.g. HTML, CSS, JavaScript, React"
+                    >
+
+                </div>
+
+
+                <!-- Database -->
+                <div class="form-group">
+
+                    <label for="databases">
+                        Databases
+                    </label>
+
+                    <input
+                        type="text"
+                        id="databases"
+                        placeholder="e.g. MySQL, MongoDB, Oracle"
+                    >
+
+                </div>
+
+
+                <!-- Tools -->
+                <div class="form-group">
+
+                    <label for="tools">
+                        Tools & Technologies
+                    </label>
+
+                    <input
+                        type="text"
+                        id="tools"
+                        placeholder="e.g. Git, GitHub, VS Code, Node.js"
+                    >
+
+                </div>
+
+
+                <!-- Soft Skills -->
+                <div class="form-group">
+
+                    <label for="softSkills">
+                        Soft Skills
+                    </label>
+
+                    <input
+                        type="text"
+                        id="softSkills"
+                        placeholder="e.g. Communication, Leadership, Teamwork"
+                    >
+
+                </div>
+
+
+                <!-- Other Skills -->
+                <div class="form-group">
+
+                    <label for="otherSkills">
+                        Other Skills
+                    </label>
+
+                    <textarea
+                        id="otherSkills"
+                        rows="4"
+                        placeholder="Enter any other relevant skills..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Save -->
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Save Skills
+                </button>
+
+
+                <!-- Message -->
+                <div id="skillsMessage"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/skills.js"></script>
+
+</body>
+
+</html>
