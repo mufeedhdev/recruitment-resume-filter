@@ -1,22 +1,50 @@
-.page-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.page-container h1 {
-    color: #171c4a;
-    margin-bottom: 10px;
-}
+    <title>Shortlisted Students</title>
 
-.student-card {
-    background: #f5f6fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/shortlisted.css">
+</head>
 
-.student-card h3 {
-    color: #171c4a;
-    margin-bottom: 8px;
-}
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        Recruitment Portal
+    </div>
+
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="search.html">Search</a>
+        <a href="shortlisted.html">Shortlisted</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+    <h1>Shortlisted Students</h1>
+
+    <p class="subtext">
+        Students selected by the recruiter
+    </p>
+
+    <section
+        id="shortlistedResults"
+        class="student-grid">
+    </section>
+
+</main>
+
+
+<script src="../js/shortlisted.js"></script>
+
+</body>
+</html>

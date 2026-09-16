@@ -1,293 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Recruiter Login</title>
 
-    <!-- Common CSS -->
     <link rel="stylesheet" href="../css/common.css">
-
-    <!-- Auth CSS -->
     <link rel="stylesheet" href="../css/auth.css">
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<header class="topbar">
 
-    <nav class="navbar">
+    <div class="brand">
+        Recruitment Portal
+    </div>
 
-        <div class="brand">
-            Recruitment Portal
-        </div>
-
-        <div class="nav-links">
-            <a href="../index.html">Home</a>
-            <a href="register.html">Register</a>
-        </div>
-
+    <nav>
+        <a href="../../index.html">Home</a>
+        <a href="register.html">Register</a>
     </nav>
 
+</header>
 
-    <!-- ================= LOGIN SECTION ================= -->
 
-    <main class="auth-container">
+<div class="auth-container">
 
-        <div class="auth-card">
+    <div class="auth-box">
 
-            <h1>Recruiter Login</h1>
+        <h1>Recruiter Login</h1>
 
-            <p class="subtitle">
-                Login to your recruiter account
-            </p>
+        <p>Login using your registered details</p>
 
 
-            <!-- ================= LOGIN FORM ================= -->
+        <form id="loginForm" >
 
-            <form id="loginForm">
+            <label>Email Address</label>
 
-                <!-- Email -->
+            <input
+                type="text"
+                id="loginEmail"
+                placeholder="example@sastra.ac.in"
+            >
 
-                <div class="form-group">
+            <span id="loginEmailError" class="error"></span>
 
-                    <label for="email">
-                        Email ID
-                    </label>
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="123456789@sastra.ac.in"
-                        required
-                    >
+            <label>Password</label>
 
-                    <small
-                        id="emailError"
-                        style="color:red;"
-                    ></small>
+            <input
+                type="password"
+                id="loginPassword"
+                maxlength="6"
+                placeholder="Enter 6 character password"
+            >
 
-                </div>
+            <span id="loginPasswordError" class="error"></span>
 
 
-                <!-- Password -->
+            <button type="submit">
+                Login
+            </button>
 
-                <div class="form-group">
 
-                    <label for="password">
-                        Password
-                    </label>
+        </form>
 
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter 6 digit password"
-                        maxlength="6"
-                        inputmode="numeric"
-                        required
-                    >
 
-                    <small
-                        id="passwordError"
-                        style="color:red;"
-                    ></small>
+        <p class="forgot">
 
-                </div>
+            <a href="forgot-password.html">
+                Forgot Password?
+            </a>
 
+        </p>
 
-                <!-- Login Button -->
 
-                <button
-                    type="submit"
-                    class="login-btn"
-                    style="
-                        width:100%;
-                        padding:14px;
-                        background:#151b4f;
-                        color:white;
-                        border:none;
-                        border-radius:7px;
-                        font-size:16px;
-                        font-weight:bold;
-                        cursor:pointer;
-                        margin-top:10px;
-                    "
-                >
-                    Login
-                </button>
+        <p class="bottom-text">
 
+            Don't have an account?
 
-                <!-- Register Link -->
+            <a href="register.html">
+                Register
+            </a>
 
-                <p style="text-align:center; margin-top:15px;">
+        </p>
 
-                    Don't have an account?
+    </div>
 
-                    <a href="register.html">
-                        Register
-                    </a>
+</div>
 
-                </p>
 
-            </form>
-
-        </div>
-
-    </main>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script>
-
-        /* ==========================================
-           PASSWORD - NUMBERS ONLY
-        ========================================== */
-
-        document
-            .getElementById("password")
-            .addEventListener("input", function () {
-
-                this.value =
-                    this.value.replace(/[^0-9]/g, "");
-
-                const passwordError =
-                    document.getElementById("passwordError");
-
-                if (
-                    this.value.length > 0 &&
-                    this.value.length !== 6
-                ) {
-
-                    passwordError.textContent =
-                        "Password must be exactly 6 digits.";
-
-                } else {
-
-                    passwordError.textContent = "";
-
-                }
-
-            });
-
-
-        /* ==========================================
-           EMAIL VALIDATION
-        ========================================== */
-
-        document
-            .getElementById("email")
-            .addEventListener("input", function () {
-
-                const emailError =
-                    document.getElementById("emailError");
-
-                const emailPattern =
-                    /^[0-9]+@sastra\.ac\.in$/;
-
-                if (
-                    this.value.length > 0 &&
-                    !emailPattern.test(this.value)
-                ) {
-
-                    emailError.textContent =
-                        "Email must be in the format 123456789@sastra.ac.in";
-
-                } else {
-
-                    emailError.textContent = "";
-
-                }
-
-            });
-
-
-        /* ==========================================
-           LOGIN
-        ========================================== */
-
-        document
-            .getElementById("loginForm")
-            .addEventListener("submit", function (event) {
-
-                event.preventDefault();
-
-
-                const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
-
-
-                const password =
-                    document
-                        .getElementById("password")
-                        .value;
-
-
-                /* Get registered details */
-
-                const registeredEmail =
-                    localStorage.getItem("recruiterEmail");
-
-                const registeredPassword =
-                    localStorage.getItem("recruiterPassword");
-
-
-                /* ======================================
-                   CHECK EMAIL AND PASSWORD
-                ====================================== */
-
-                if (
-                    email === registeredEmail &&
-                    password === registeredPassword
-                ) {
-
-                    /* Login status */
-
-                    localStorage.setItem(
-                        "loggedIn",
-                        "true"
-                    );
-
-
-                    localStorage.setItem(
-                        "loginEmail",
-                        email
-                    );
-
-
-                    /* Success message */
-
-                    alert("Login successful!");
-
-
-                    /* =================================
-                       GO TO DASHBOARD
-                    ================================= */
-
-                    window.location.href =
-                        "dashboard.html";
-
-                }
-
-                else {
-
-                    alert(
-                        "Invalid Email ID or Password."
-                    );
-
-                }
-
-            });
-
-    </script>
+<script src="../js/auth.js"></script>
 
 </body>
-
 </html>

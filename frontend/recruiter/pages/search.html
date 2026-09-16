@@ -10,78 +10,133 @@
 
     <title>Search Students</title>
 
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/search.css">
 
 </head>
 
+
 <body>
 
-    <nav class="navbar">
 
-        <span class="brand">
-            Recruitment Portal
-        </span>
+<header class="topbar">
 
-        <div class="nav-links">
+    <div class="brand">
+        Recruitment Portal
+    </div>
 
-            <a href="dashboard.html">
-                Dashboard
-            </a>
 
-            <a href="search.html">
-                Search
-            </a>
+    <nav>
 
-            <a href="shortlisted.html">
-                Shortlisted
-            </a>
+        <a href="dashboard.html">
+            Dashboard
+        </a>
 
-            <a href="student-profile.html">
-                Student Profile
-            </a>
+        <a href="search.html">
+            Search
+        </a>
 
-        </div>
+        <a href="shortlisted.html">
+            Shortlisted
+        </a>
+
+        <a href="#" id="logoutBtn">
+            Logout
+        </a>
 
     </nav>
 
-
-    <main class="page-container">
-
-        <div class="card">
-
-            <h1>Search Students</h1>
-
-            <p>
-                Find students based on department
-                and skills.
-            </p>
+</header>
 
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search by student name or skill">
+
+<main class="page-container">
 
 
-            <button
-                class="btn btn-primary"
-                id="searchBtn">
-
-                Search
-
-            </button>
+    <h1>
+        Search Students
+    </h1>
 
 
-            <div id="searchResult"></div>
-
-        </div>
-
-    </main>
+    <p class="subtext">
+        Search students based on department and skills.
+    </p>
 
 
-    <script src="../js/search.js"></script>
+
+    <section class="filter-box">
+
+
+        <input
+            type="text"
+            id="nameFilter"
+            placeholder="Student Name"
+        >
+
+
+        <select id="departmentFilter">
+
+            <option value="">
+                All Departments
+            </option>
+
+            <option value="CSC">
+                CSC
+            </option>
+
+            <option value="Maths">
+                Maths
+            </option>
+
+            <option value="Accounts">
+                Accounts
+            </option>
+
+            <option value="ECE">
+                ECE
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="skillFilter"
+            placeholder="Skill"
+        >
+
+
+        <button
+            id="searchBtn"
+            class="primary-btn">
+
+            Search
+
+        </button>
+
+
+    </section>
+
+
+
+    <p id="resultCount"></p>
+
+
+    <section
+        id="studentResults"
+        class="student-grid">
+    </section>
+
+
+</main>
+
+
+
+<script src="../js/search.js"></script>
+
 
 </body>
-
 </html>

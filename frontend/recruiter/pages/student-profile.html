@@ -10,87 +10,74 @@
 
     <title>Student Profile</title>
 
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"
+          href="../css/common.css">
+
     <link rel="stylesheet"
           href="../css/student-profile.css">
 
 </head>
 
+
 <body>
 
-    <nav class="navbar">
 
-        <span class="brand">
-            Recruitment Portal
-        </span>
+<header class="topbar">
 
-        <div class="nav-links">
+    <div class="brand">
+        Recruitment Portal
+    </div>
 
-            <a href="dashboard.html">
-                Dashboard
-            </a>
 
-            <a href="search.html">
-                Search
-            </a>
+    <nav>
 
-            <a href="shortlisted.html">
-                Shortlisted
-            </a>
+        <a href="dashboard.html">
+            Dashboard
+        </a>
 
-            <a href="student-profile.html">
-                Student Profile
-            </a>
+        <a href="search.html">
+            Search
+        </a>
 
-        </div>
+        <a href="shortlisted.html">
+            Shortlisted
+        </a>
+
+        <a href="#" id="logoutBtn">
+            Logout
+        </a>
 
     </nav>
 
-
-    <main class="profile-container">
-
-        <div class="card">
-
-            <h1>
-                Student Profile
-            </h1>
-
-            <div class="profile-details">
-
-                <p>
-                    <strong>Name:</strong>
-                    Student Name
-                </p>
-
-                <p>
-                    <strong>Register Number:</strong>
-                    XXXXXXXX
-                </p>
-
-                <p>
-                    <strong>Department:</strong>
-                    CSE
-                </p>
-
-                <p>
-                    <strong>Email:</strong>
-                    student@sastra.ac.in
-                </p>
-
-                <p>
-                    <strong>Skills:</strong>
-                    Communication, Java, Python
-                </p>
-
-            </div>
-
-        </div>
-
-    </main>
+</header>
 
 
-    <script src="../js/student-profile.js"></script>
+
+<main class="page-container">
+
+
+    <a
+        href="search.html"
+        class="back-link">
+
+        ← Back to Search
+
+    </a>
+
+
+    <section
+        id="profile"
+        class="profile-card">
+
+    </section>
+
+
+</main>
+
+
+
+<script src="../js/student-profile.js"></script>
+
 
 </body>
-
 </html>
