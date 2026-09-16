@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <nav>
+        <h2>Recruitment Portal</h2>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="search.html">Search</a>
+            <a href="shortlisted.html">Shortlisted</a>
+            <a href="student-profile.html">Student Profile</a>
+            <a href="../index.html" id="logoutBtn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+
+        <div class="dashboard-header">
+            <div>
+                <h1>Recruiter Dashboard</h1>
+                <p>Manage and filter student records</p>
+            </div>
+
+            <div class="staff-profile">
+                <h3>Staff Profile</h3>
+                <p id="staffName"></p>
+                <p id="staffEmail"></p>
+                <a href="student-profile.html">View Profile</a>
+            </div>
+        </div>
+
+        <section class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <h2>Student Details</h2>
+                <p>View student academic and personal details.</p>
+                <a href="search.html">View Students</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Student Communication Skills</h2>
+                <p>View students' communication skills and abilities.</p>
+                <a href="search.html">View Skills</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Student Extra-Curricular Activities</h2>
+                <p>View student activities and achievements.</p>
+                <a href="search.html">View Activities</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Student Certification</h2>
+                <p>View certificates and additional qualifications.</p>
+                <a href="search.html">View Certifications</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Search Students</h2>
+                <p>Search by name, year or course.</p>
+                <a href="search.html">Search</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Shortlisted Students</h2>
+                <p>View the list of shortlisted students.</p>
+                <a href="shortlisted.html">View List</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
