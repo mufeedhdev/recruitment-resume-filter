@@ -1,0 +1,89 @@
+.filter-box {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1.5fr auto;
+
+    gap: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
+}
+
+
+.filter-box input,
+.filter-box select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+
+#resultCount {
+
+    margin: 20px 0;
+
+    font-weight: bold;
+}
+
+
+.student-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.student-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
+}
+
+
+.student-card h2 {
+
+    margin-bottom: 12px;
+}
+
+
+.student-card p {
+
+    margin: 8px 0;
+
+    color: #4b5563;
+}
+
+
+@media (max-width: 800px) {
+
+    .filter-box,
+    .student-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}

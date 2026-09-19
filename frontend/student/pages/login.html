@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login</title>
+
+    <link rel="stylesheet" href="../../shared/css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <span class="brand">Recruitment Resume Filter</span>
+
+        <div>
+            <a href="../../index.html">Home</a>
+            <a href="register.html">Register</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Login -->
+    <div class="container">
+
+        <div class="auth-card card">
+
+            <span class="eyebrow">Student Portal</span>
+
+            <h2>Student Login</h2>
+
+            <p class="login-description">
+                Login using your registered college email and password.
+            </p>
+
+
+            <form id="loginForm">
+
+                <!-- College Email -->
+                <div class="form-group">
+
+                    <label for="loginEmail">
+                        College Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="123456789@sastra.ac.in"
+                        required
+                    >
+
+                    <small
+                        id="loginEmailError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <small
+                        id="loginPasswordError"
+                        style="color: var(--error); display: none;">
+                    </small>
+
+                </div>
+
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Login
+                </button>
+
+
+                <!-- Message -->
+                <div id="loginMessage"></div>
+
+            </form>
+
+
+            <!-- Register -->
+            <p
+                class="mt-1"
+                style="font-size: 0.85rem; color: var(--text-muted);">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Register here
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/auth.js"></script>
+
+</body>
+
+</html>

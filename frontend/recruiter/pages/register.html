@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recruiter Registration</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        Recruitment Portal
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+
+<div class="auth-container">
+
+    <div class="auth-box">
+
+        <h1>Recruiter Registration</h1>
+
+        <p>Create your recruiter account</p>
+
+
+        <form id="registerForm">
+
+            <!-- Staff Name -->
+            <label>Staff Name</label>
+
+            <input
+                type="text"
+                id="staffName"
+                placeholder="Enter Staff Name"
+            >
+
+            <span id="staffNameError" class="error"></span>
+
+
+            <!-- Staff ID -->
+            <label>Staff ID</label>
+
+            <input
+                type="text"
+                id="staffId"
+                placeholder="Enter Staff ID"
+            >
+
+            <span id="staffIdError" class="error"></span>
+
+
+            <!-- Department -->
+            <label>Department</label>
+
+            <select id="department">
+
+                <option value="">Select Department</option>
+
+                <option value="CSC">CSC</option>
+
+                <option value="Maths">Maths</option>
+
+                <option value="Accounts">Accounts</option>
+
+                <option value="ECE">ECE</option>
+
+            </select>
+
+            <span id="departmentError" class="error"></span>
+
+
+            <!-- Date of Birth -->
+            <label>Date of Birth</label>
+
+            <input
+                type="date"
+                id="dob"
+            >
+
+            <span id="dobError" class="error"></span>
+
+
+            <!-- Mobile Number -->
+            <label>Mobile Number</label>
+
+            <input
+                type="text"
+                id="phone"
+                maxlength="10"
+                placeholder="Enter 10 digit mobile number"
+            >
+
+            <span id="phoneError" class="error"></span>
+
+
+            <!-- Email -->
+            <label>Email Address</label>
+
+            <input
+                type="text"
+                id="email"
+                placeholder="example@sastra.ac.in"
+            >
+
+            <span id="emailError" class="error"></span>
+
+
+            <!-- Password -->
+            <label>Create Password</label>
+
+            <input
+                type="password"
+                id="password"
+                maxlength="6"
+                placeholder="Enter 6 characters"
+            >
+
+            <span id="passwordError" class="error"></span>
+
+
+            <!-- Confirm Password -->
+            <label>Confirm Password</label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                maxlength="6"
+                placeholder="Re-enter password"
+            >
+
+            <span id="confirmPasswordError" class="error"></span>
+
+
+            <button type="submit">
+                Register
+            </button>
+
+
+        </form>
+
+
+        <p class="bottom-text">
+
+            Already have an account?
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<script src="../js/auth.js"></script>
+
+</body>
+</html>

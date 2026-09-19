@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search Students</title>
+
+    <link rel="stylesheet"
+          href="../css/common.css">
+
+    <link rel="stylesheet"
+          href="../css/search.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+        Recruitment Portal
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="search.html">
+            Search
+        </a>
+
+        <a href="shortlisted.html">
+            Shortlisted
+        </a>
+
+        <a href="#" id="logoutBtn">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="page-container">
+
+
+    <h1>
+        Search Students
+    </h1>
+
+
+    <p class="subtext">
+        Search students based on department and skills.
+    </p>
+
+
+
+    <section class="filter-box">
+
+
+        <input
+            type="text"
+            id="nameFilter"
+            placeholder="Student Name"
+        >
+
+
+        <select id="departmentFilter">
+
+            <option value="">
+                All Departments
+            </option>
+
+            <option value="CSC">
+                CSC
+            </option>
+
+            <option value="Maths">
+                Maths
+            </option>
+
+            <option value="Accounts">
+                Accounts
+            </option>
+
+            <option value="ECE">
+                ECE
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="skillFilter"
+            placeholder="Skill"
+        >
+
+
+        <button
+            id="searchBtn"
+            class="primary-btn">
+
+            Search
+
+        </button>
+
+
+    </section>
+
+
+
+    <p id="resultCount"></p>
+
+
+    <section
+        id="studentResults"
+        class="student-grid">
+    </section>
+
+
+</main>
+
+
+
+<script src="../js/search.js"></script>
+
+
+</body>
+</html>
