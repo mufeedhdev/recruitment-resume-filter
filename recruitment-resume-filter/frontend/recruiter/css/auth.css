@@ -1,6 +1,13 @@
-/* =================================
+/* ================================
    AUTH CSS
-   ================================= */
+   Login / Register / Forgot Password
+================================ */
+
+body {
+    background: linear-gradient(135deg, #eef4ff, #f8fafc);
+}
+
+/* ---------- Auth Container ---------- */
 
 .auth-container {
     min-height: calc(100vh - 70px);
@@ -12,76 +19,94 @@
     padding: 40px 20px;
 }
 
+/* ---------- Auth Card ---------- */
+
 .auth-card {
     width: 100%;
-    max-width: 550px;
+    max-width: 480px;
 
     background: white;
 
-    padding: 40px;
+    padding: 35px 40px;
 
-    border-radius: 15px;
+    border-radius: 16px;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+
+    border: 1px solid #e5e7eb;
 }
 
 .auth-card h1 {
     text-align: center;
-    color: #171c4a;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.auth-card > p {
+.auth-card h2 {
     text-align: center;
-    color: #666;
     margin-bottom: 25px;
+}
+
+.auth-card p {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ---------- Form ---------- */
+
+form {
+    width: 100%;
 }
 
 .form-group {
     margin-bottom: 18px;
 }
 
-.form-group label {
+label {
     display: block;
     margin-bottom: 7px;
-    font-weight: bold;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
 }
 
-.form-group input,
-.form-group select {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 13px;
 
-    border: 1px solid #ccc;
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
     border-radius: 7px;
 
+    background: #ffffff;
+
     font-size: 15px;
+    color: #1e293b;
+
     outline: none;
+
+    transition: 0.3s;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #171c4a;
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
-.error {
-    color: red;
-    font-size: 13px;
-    margin-top: 5px;
-    min-height: 16px;
-}
+/* ---------- Auth Button ---------- */
 
-.success {
-    color: green;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.auth-button {
+.auth-card button {
     width: 100%;
-    padding: 14px;
+    margin-top: 8px;
 
-    background: #171c4a;
+    padding: 13px;
+
+    background: #2563eb;
     color: white;
 
     border: none;
@@ -91,19 +116,52 @@
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
-.auth-button:hover {
-    background: #292f6b;
+.auth-card button:hover {
+    background: #1d4ed8;
 }
 
-.auth-link {
+/* ---------- Links ---------- */
+
+.auth-links {
     text-align: center;
     margin-top: 20px;
 }
 
-.auth-link a {
-    color: #171c4a;
-    font-weight: bold;
+.auth-links a {
+    color: #2563eb;
     text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Error ---------- */
+
+.error {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* ---------- Success ---------- */
+
+.success {
+    color: #16a34a;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+
+    .auth-card {
+        padding: 28px 22px;
+    }
 }

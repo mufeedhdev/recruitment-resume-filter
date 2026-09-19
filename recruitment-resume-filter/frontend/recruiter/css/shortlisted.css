@@ -1,22 +1,123 @@
-.page-container {
+/* ================================
+   SHORTLISTED CSS
+================================ */
+
+.shortlisted-container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1200px;
+
     margin: 40px auto;
 }
 
-.page-container h1 {
-    color: #171c4a;
+/* ---------- Header ---------- */
+
+.shortlisted-header {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 14px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* ---------- Shortlisted Card ---------- */
+
+.shortlisted-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.shortlisted-card {
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+
+    transition: 0.3s;
+}
+
+.shortlisted-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+/* ---------- Student Info ---------- */
+
+.shortlisted-card h3 {
+    font-size: 20px;
+
+    color: #0f172a;
+
     margin-bottom: 10px;
 }
 
-.student-card {
-    background: #f5f6fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+.shortlisted-card p {
+    margin-bottom: 7px;
+    font-size: 14px;
 }
 
-.student-card h3 {
-    color: #171c4a;
-    margin-bottom: 8px;
+/* ---------- Status ---------- */
+
+.status {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+/* ---------- Buttons ---------- */
+
+.shortlisted-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.shortlisted-actions a,
+.shortlisted-actions button {
+    padding: 9px 15px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 750px) {
+
+    .shortlisted-list {
+        grid-template-columns: 1fr;
+    }
+
+    .shortlisted-actions {
+        flex-direction: column;
+    }
 }
